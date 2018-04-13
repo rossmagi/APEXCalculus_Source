@@ -1,0 +1,72 @@
+One of the strengths of calculus is its ability to describe real-world phenomena.  We have seen hints of this in our discussion of the applications of derivatives and integrals in the previous chapters.  The process of formulating an equation or multiple equations to describe a physical phenomenon is called \emph{mathematical modeling.} As a simple example, populations of bacteria are often described as ``growing exponentially." Looking in a biology text, we might see $P(t) = P_0e^{kt},$ where $P(t)$ is the bacteria population at time $t$, $P_0$ is the initial population at time $t=0$, and the constant $k$ describes how quickly the population grows. This equation for exponential growth arises from the assumption that the population of bacteria grows at a rate proportional to its size.  Recalling that the derivative gives the rate of change of a function, we can describe the growth assumption precisely using the equation
+\[
+P' = kP.
+\]
+This equation is called a \emph{differental equation}, and is the subject of the current chapter.
+
+\section{Graphical and Numerical Solutions to Differential Equations}\label{sec:Graphical_Numerical}
+In section \ref{sec:antider}, we were introduced to the idea of a differential equation.  Given a function $y = f(x),$ we defined a \emph{differential equation} as an equation involving $y, x,$ and derivatives of $y$. We explored the simple differential equation $y' = 2x,$
+and saw that a \emph{solution} to a differential equation is simply a function that satisfies the differential equation.
+
+\noindent\textbf{\large Introduction and Terminology}
+\vskip\baselineskip
+
+\definition{def:ODE}{Differential Equation}
+{Given a function $y=f(x)$, a \textbf{differential equation} is an equation relating $x, y,$ and derivatives of $y$.
+\begin{itemize}
+\item The variable $x$ is called the \textbf{independent variable}.
+\item The variable $y$ is called the \textbf{dependent variable}.
+\item The \textbf{order} of the differential equation is the order of the highest derivative of $y$.
+\end{itemize}
+}
+
+Let us return to the simple differential equation
+\[
+y' = 2x.
+\]
+To find a solution, we must find a function whose derivative is $2x$.  In other words, we seek an antiderivative of $2x.$  The function 
+\[y = x^2\]
+is an antiderivative of $2x$, and solves the differential equation.  So do the functions
+\[y = x^2 + 1\]
+and
+\[y = x^2 - 2346.\]
+We call the function
+\[y = x^2 +  C,\]
+with $C$ an arbitrary constant of integration, the \emph{general solution} to the differential equation.
+
+In order to specify the value of the integration constant $C$, we require additional information.  For example, if we know that $y(1) = 3$, it follows that $C=2$.  This additional information is called an \emph{initial condition.}
+
+\definition{def:IVP}{Initial Value Problem}
+{A differential equation paired with an initial condition (or initial conditions) is called an \textbf{initial value problem.}\\
+
+The solution to an initial value problem is called a \textbf{particular solution} to the initial value problem.
+
+The solution to a differential that encompasses all possible solutions is called the \textbf{general solution} to the differential equation.
+}\\
+
+\example{ex_simple_de}{A Simple First-Order Differential Equation}{
+Solve the differential equation $\displaystyle y' = 2y$.}
+{The solution is a function $y$ such that differentiation yields twice the original function.  Unlike our starting example, finding the solution here does not involve computing an antiderivative.  Notice that ``integrating both sides'' would yield the result $y = \int 2y\,dx,$ which is not useful.  Without knowledge of the function $y$, we can't compute the indefinite integral. Later sections will explore systematic ways to find analytic solution to simple differential equations.  For now, a bit of though might let us guess that solution 
+\[y = e^{2x}.\]
+Notice that application of the chain rule yields $y' = 2e^{2x} = 2y.$ Another solution is given by
+\[y = -3e^{2x}.\]
+In fact
+\[y = Ce^{2x},\]
+where $C$ is any constant, is the \emph{general solution} to the differential equation because $y' = 2Ce^{2x} = 2y$.
+
+If we are provided with a single initial condition, say $y(0) = 3,$ we can identify $C=3$ so that
+\[y = 3e^{2x}\]
+is the \emph{particular solution} to the initial value problem 
+\[y' = 2y, \text{ with } y(0) = 3.\]
+\vskip -\baselineskip
+}\\
+
+\example{ex_simple_de2}{A Second-Order Differential Equation}{
+Solve the differential equation $y'' + 9y = 0.$}
+{We seek a function such that two derivatives returns negative 9 multiplied by the original function.  Both $\sin(3x)$ and $\cos(3x)$ have this feature.  The general solution to the differential equation is given by
+\[y = C_1\sin(3x) + C_2\cos(3x),\]
+where $C_1$ and $C_2$ are arbitrary constants.  To fully specify a particular solution, we require two additional conditions.  For example, the initial conditions $y(0)=1$ and $y'(0)=3$ yield $C_1 = C_2 = 1.$}\\
+
+The differential equation in example \ref{ex_simple_de2} is second order because the equation involves a second derivative.  In general, the number of initial conditions required to specify a particular solution depends on the order of the differential equation.  For the remainder of the chapter, we will restrict our attention to first order differential equations and first order initial value problems.
+
+
