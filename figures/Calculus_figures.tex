@@ -77,7 +77,7 @@ marginparwidth=150pt]{geometry}
 
 \newboolean{colorprint}
 \setboolean{colorprint}{true}
-%\setboolean{colorprint}{false}
+\setboolean{colorprint}{false}
 
 \ifthenelse{\boolean{colorprint}}{%
 \newcommand{\colorone}{blue}
@@ -143,11 +143,11 @@ marginparwidth=150pt]{geometry}
 
 \begin{document}
 
-\mysettikzname{website_header_12}
-\input{website_header_12}
-
-Image File Name: \texttt{\detokenize{figfwithderiv}}\par
-TeX File Name: \texttt{\detokenize{figfwithderiv}}\par
+%\mysettikzname{website_header_12}
+%\input{website_header_12}
+%
+%Image File Name: \texttt{\detokenize{figfwithderiv}}\par
+%TeX File Name: \texttt{\detokenize{figfwithderiv}}\par
 
 
 
@@ -162,6 +162,12 @@ TeX File Name: \texttt{\detokenize{figfwithderiv}}\par
 {} %i.e., do nothing
 {%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mysettikzname{figDE_01_intersection}
+\input{fig_DE_01_intersection}
+
+Image File Name: \texttt{\detokenize{figDE_01_intersection}}\par
+TeX File Name: \texttt{\detokenize{figDE_01_intersection}}\par
 
 %\mysettikzname{fig13_02_ex_18}
 %\input{fig_13_02_ex_18}
