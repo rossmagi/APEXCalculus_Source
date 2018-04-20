@@ -73,12 +73,35 @@ Which of the following is a solution to the differential equation \[ y' + \frac{
 \begin{center}
 \hfill a) $y = C \left ( 1 + \ln x \right )^2$ \hfill b) $y = \left ( \frac{1}{3}x + \frac{C}{\sqrt{x}} \right )^2$ \hfill c) $y = C e^{-3x} + \sqrt{\sin x}$ \hfill
 \end{center}}
-{Verifying a solution to a differential equation is simply an exercise in differentiation and simplification.  We substitute equation solution in the differential equation to see if it satisfies the equation.
+{Verifying a solution to a differential equation is simply an exercise in differentiation and simplification.  We substitute each potential solution into the differential equation to see if it satisfies the equation.\\
 
-a) Testing the potential solution $y = C \left ( 1 + \ln x \right )^2$:
+\noindent a) Testing the potential solution $y = C \left ( 1 + \ln x \right )^2$:
 
 Differentiating, we have $\displaystyle y' = \frac{2C(1 + \ln x)}{x}$.  Substituting into the differential equation,
+\begin{align*}
+&\ \frac{2C(1+\ln x)}{x} + \frac{C(1+\ln x)^2}{x} -\sqrt{C}(1+\ln x)\\
+=&\ (1+\ln x)\left( \frac{2C}{x} + \frac{C(1+\ln x)}{x} - \sqrt{C}\right)\\
+ \neq &\ 0.
+\end{align*}
+Since it doesn't satisfy the differential equation, $y = C(1 + \ln x)^2$ is \emph{not} a solution.\\
 
+\noindent b) Testing the potential solution $\displaystyle y = \left ( \frac{1}{3}x + \frac{C}{\sqrt{x}} \right )^2$:
+
+Differentiating, we have $\displaystyle y' = 2\left ( \frac{1}{3}x + \frac{C}{\sqrt{x}} \right )\left ( \frac{1}{3} - \frac{C}{2x^{3/2}}\right ).$ Substituting into the differential equation,
+\begin{align*}
+&\ 2\left ( \frac{1}{3}x + \frac{C}{\sqrt{x}} \right )\left ( \frac{1}{3} - \frac{C}{2x^{3/2}}\right ) + \frac{1}{x}\left ( \frac{1}{3}x + \frac{C}{\sqrt{x}} \right )^2 - \left (\frac{1}{3}x + \frac{C}{\sqrt{x}}\right) \\
+=&\ \left ( \frac{1}{3}x + \frac{C}{\sqrt{x}} \right ) \left ( \frac{2}{3} - \frac{C}{x^{3/2}} + \frac{1}{3} + \frac{C}{x^{3/2}} - 1 \right )\\
+=&\ 0.
+\end{align*}
+Thus  $\displaystyle y = \left ( \frac{1}{3}x + \frac{C}{\sqrt{x}} \right )^2$ \emph{is} a solution to the differential equation.\\
+
+\noindent c) Testing the potential solution $\displaystyle y = C e^{-3x} + \sqrt{\sin x}$:
+
+Differentiating, $\displaystyle y' = -3Ce^{-3x} + \frac{\cos x}{2\sqrt{\sin x}}.$ Substituting into the differential equation,
+\begin{align*}
+&\ -3Ce^{-3x} + \frac{\cos x}{2\sqrt{\sin x}} + \frac{C e^{-3x} + \sqrt{\sin x}}{x} - \sqrt{C e^{-3x} + \sqrt{\sin x}} \neq 0.
+\end{align*}
+The function $\displaystyle y = C e^{-3x} + \sqrt{\sin x}$ is \emph{not} a solution to the differential equation.
 }\\
 
 
@@ -88,14 +111,14 @@ Differentiating, we have $\displaystyle y' = \frac{2C(1 + \ln x)}{x}$.  Substitu
 
 The solutions to the differential equations we have found so far are called \emph{analytic solutions.} We have found exact forms for the functions that solve the  differential equations.  Many times a differential equation will have a solution, but it is difficult or impossible to find the solution analytically.  This is analogous to algebraic equations.  The algebraic equation $x^2 + 3x - 1 = 0$ has two real solutions that can be found analytically by using the quadratic formula. The equation $\cos x = x$ has one real solution, but we can find it analytically. As shown in figure \ref{fig:DE_01_intersection}, we can find an approximate solution graphically by plotting $\cos x$ and $x$ and observing the $x$-value of the intersection. We can similarly use graphical tools to understand the qualitative behavior of solutions to a first order-differential equation.
 
-\mfigure{.81}{Graphically finding an approximate solution to $\cos x = x.$}{fig:DE_01_intersection}{figures/figDE_01_intersection}
+\mfigure{.75}{Graphically finding an approximate solution to $\cos x = x.$}{fig:DE_01_intersection}{figures/figDE_01_intersection}
 
 Consider the first-order differential equation
 \[y' = f(x,y).\]
 The function $f$ could be any function of the two variables $x$ and $y$.  Written in this way, we can think of the function $f$ as providing a formula to find the slope of a solution at a given point in the $xy$-plane.  In other words, suppose a solution to the differential equation passes through the point $(x_0,y_0)$.  Then, at the point $(x_0,y_0)$ the slope of the solution curve will be $f(x_0,y_0).$  Since this calculation of the slope is possible at any point $(x,y)$ where the function $f(x,y)$ is defined, we can produce a plot called a \emph{slope field} that shows the slope of a solution at any point in the $xy$-plane where the solution is defined.  Further, this process can be done purely by working with the differential equation itself.  In other words, we can draw a slope field and use it to determine the qualitative behavior of solutions to a differential equation without having to solve the differential equation.
 
 \definition{def:slope_field}{Slope Field}
-{A \textbf{slope field} for a first-order differential equation $y' = f(x,y)$ is a plot in the $xy$-plane made up of short line segments or arrows. For each point $(x_0,y_0)$ where $f(x,y)$ is defined, the slope of the line segment is given by $f(x_0,y_0)$}\\
+{A \textbf{slope field} for a first-order differential equation $y' = f(x,y)$ is a plot in the $xy$-plane made up of short line segments or arrows. For each point $(x_0,y_0)$ where $f(x,y)$ is defined, the slope of the line segment is given by $f(x_0,y_0)$. Plots of solutions to a differential equation are tangent to the line segments in the slope field.}\\
 
 \example{ex_slope_field}{Finding a slope field}{
 Find a slope field for the differential equation $\displaystyle y' = x+y$.}
@@ -107,11 +130,15 @@ Find a slope field for the differential equation $\displaystyle y' = x+y$.}
 
 \noindent The slope of the line segment at $(1,-1)$ is given by $f(1,-1) = 1 - 1 = 0.$\\
 
-\noindent The slope of the line segment at $(-2,3)$ is given by $f(-2,3) = -2 + 3 = 1.$\\
+\noindent The slope of the line segment at $(-2,3)$ is given by $f(-2,-1) = -2 - 1 = -3.$\\
 
-These four components of the slope field are shown in figure .  The entire slope field for the differential equation is shown in figure .
-\vskip -\baselineskip
+Continuing the above process and plotting the line segments with appropriate slopes results in the slope field shown in figure \ref{fig:DE_01_ex_4}.
+%\vskip -\baselineskip
 }\\
+
+%\mfigure{.8}{A few representative arrows in the slope field for $y' = x+y$}{fig:DE_01_ex_4a}{figures/figDE_01_ex_4a}
+
+\mfigure{.75}{Slope field for $y' = x+y$ from example \ref{ex_slope_field}.}{fig:DE_01_ex_4}{figures/figDE_01_ex_4}
 
 \example{ex_IVP_graphical}{Finding a graphical solution to an initial value problem}{
 Find a graphical solution to the initial value problem $\displaystyle y' = x+y$ with $y(1)=-1$.}
@@ -121,8 +148,16 @@ Find a graphical solution to the initial value problem $\displaystyle y' = x+y$ 
 \item The solution must pass through the point $(1,-1)$.
 \item When the solution passes through a point $(x_0,y_0)$ it must be tangent to the line segment at $(x_0,y_0)$.
 \end{enumerate}
-Essentially, we sketch a solution to the initial value problem by starting at the point $(1,-1)$ and ``following the lines" in either direction.  A sketch of the solution is shown in figure .
-
-\vskip -\baselineskip
+Essentially, we sketch a solution to the initial value problem by starting at the point $(1,-1)$ and ``following the lines" in either direction.  A sketch of the solution is shown in figure \ref{fig:DE_01_ex_5}.
+%\vskip -\baselineskip
 }\\
 
+\mfigure{.5}{Solution to the initial value problem $y' = x+y$ with $y(1)=-1.$}{fig:DE_01_ex_5}{figures/figDE_01_ex_5}
+
+\example{ex_logistic_slope_field}{Using a slope field to predict long term behavior}{
+Use the slope field for the differential equation $y' = y(1-y)$, shown in figure \ref{fig:DE_01_ex_6}, to predict long term behavior of solutions to the equation.}
+{
+
+}
+
+\mfigure{.2}{Solution to the initial value problem $y' = x+y$ with $y(1)=-1.$}{fig:DE_01_ex_6}{figures/figDE_01_ex_6}
