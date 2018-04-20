@@ -102,7 +102,7 @@ Differentiating, $\displaystyle y' = -3Ce^{-3x} + \frac{\cos x}{2\sqrt{\sin x}}.
 &\ -3Ce^{-3x} + \frac{\cos x}{2\sqrt{\sin x}} + \frac{C e^{-3x} + \sqrt{\sin x}}{x} - \sqrt{C e^{-3x} + \sqrt{\sin x}} \neq 0.
 \end{align*}
 The function $\displaystyle y = C e^{-3x} + \sqrt{\sin x}$ is \emph{not} a solution to the differential equation.
-}\\
+}
 
 
 \vskip\baselineskip
@@ -136,8 +136,6 @@ Continuing the above process and plotting the line segments with appropriate slo
 %\vskip -\baselineskip
 }\\
 
-%\mfigure{.8}{A few representative arrows in the slope field for $y' = x+y$}{fig:DE_01_ex_4a}{figures/figDE_01_ex_4a}
-
 \mfigure{.75}{Slope field for $y' = x+y$ from example \ref{ex_slope_field}.}{fig:DE_01_ex_4}{figures/figDE_01_ex_4}
 
 \example{ex_IVP_graphical}{Finding a graphical solution to an initial value problem}{
@@ -152,12 +150,42 @@ Essentially, we sketch a solution to the initial value problem by starting at th
 %\vskip -\baselineskip
 }\\
 
-\mfigure{.5}{Solution to the initial value problem $y' = x+y$ with $y(1)=-1.$}{fig:DE_01_ex_5}{figures/figDE_01_ex_5}
+\mfigure{.5}{Solution to the initial value problem $y' = x+y$ with $y(1)=-1$ from example \ref{ex_IVP_graphical}}{fig:DE_01_ex_5}{figures/figDE_01_ex_5}
+
+
+\mfigure{.275}{Slope field for the logistic differential equation $y' = y(1-y)$ from example \ref{ex_logistic_slope_field}.}{fig:DE_01_ex_6a}{figures/figDE_01_ex_6a}
+
 
 \example{ex_logistic_slope_field}{Using a slope field to predict long term behavior}{
-Use the slope field for the differential equation $y' = y(1-y)$, shown in figure \ref{fig:DE_01_ex_6}, to predict long term behavior of solutions to the equation.}
-{
+Use the slope field for the differential equation $y' = y(1-y)$, shown in figure \ref{fig:DE_01_ex_6a}, to predict long term behavior of solutions to the equation.}
+{This differential equation, called the \emph{logistic differential equation}, often appears in population biology to describe the size of a population.  For that reason, we use $t$ (time) as the independent variable instead of $x$. We also often restrict attention to non-negative $y$-values because negative values correspond to a negative population.\\
 
+Looking at the slope field in figure \ref{fig:DE_01_ex_6a}, we can predict long term behavior for a given initial condition.
+\begin{itemize}
+\item If the initial $y$-value is negative ($y(0)<0$), the solution curve must pass though the point $(0,y(0))$ and follow the slope field.  We expect the solution $y$ to become more and more negative as time increases.  Note that this result is not physically relevant when considering a population.
+\item If the initial $y$-value is greater than 0 but less than 1, we expect the solution $y$ to increase and level off it $y=1$.
+\item If the initial $y$-value is greater than 1, we expect the solution $y$ to decrease and level off at $y=1$.  
+\end{itemize}
+The slope field for the logistic differential equation, along with representative solution curves, is shown in figure \ref{fig:DE_01_ex_6b}.  Notice that any solution curve with positive initial value will tend towards the value $y=1.$  We call this the \emph{carrying capacity.}
+\vskip-\baselineskip
 }
 
-\mfigure{.2}{Solution to the initial value problem $y' = x+y$ with $y(1)=-1.$}{fig:DE_01_ex_6}{figures/figDE_01_ex_6}
+\mfigure{.8}{Slope field for the logistic differential equation $y' = y(1-y)$ from example \ref{ex_logistic_slope_field} with a few representative solution curves.}{fig:DE_01_ex_6b}{figures/figDE_01_ex_6b}
+
+\vskip\baselineskip
+\noindent\textbf{\large Numerical Solutions to Differential Equations: Euler's Method}
+\vskip\baselineskip
+
+While the slope field is an effective way to understand the qualitative behavior of solutions to a differential equation, it is difficult to use a slope field to make quantitative predictions.  For example, if we have the slope field for the differential equation $y' = x+y$ from example \ref{ex_slope_field} along with the initial condition $y(0)=1$, we can understand the qualitative behavior of the solution to the initial value problem, but will struggle to predict a specific value, $y(2)$ for example, with any degree of confidence. The most straight forward way to predict $y(2)$ is to find the analytic solution to the the initial value problem and evaluate it at $x=2$.  Unfortunately, we have already mentioned that it is impossible to find analytic solutions to many differential equations.  In the absence of an analytic solution, a \emph{numerical solution} can serve as an effective tool to make quantitative predictions about the solution to an initial value problem.
+
+There are many techniques for computing numerical solutions to initial value problems. A course in numerical analysis will discuss various techniques along with their strengths and weaknesses. The simplest technique is called \emph{Euler's Method} (pronounced ``oil-er," not ``you-ler"). Consider the first-order initial value problem
+\[y' = f(x,y), \text{ with } y(x_0) = y_0.\]
+Using the definition of the derivative,
+\[y'(x) = \lim_{h \to 0} \frac{y(x+h) - y(x)}{h}.\]
+If we remove the limit but restrict $h$ to be ``small," we have
+\[y'(x) \approx \frac{y(x+h) - y(x)}{h},\]
+so that
+\[f(x,y) \approx \frac{y(x+h)-y(x)}{h},\]
+because $y' = f(x,y)$ according to the differential equation.  Rearranging terms,
+\[y(x + h) \approx y(x) + hf(x,y).\]
+This statement says that if we know the solution ($y$-value) to the initial value problem for some given $x$-value, we can find an approximation for the solution at the value $x+h$ by taking our  $y$-value and adding $h$ times the function $f$ evaluated at the $x$ and $y$ values.
