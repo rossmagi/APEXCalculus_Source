@@ -188,4 +188,97 @@ so that
 \[f(x,y) \approx \frac{y(x+h)-y(x)}{h},\]
 because $y' = f(x,y)$ according to the differential equation.  Rearranging terms,
 \[y(x + h) \approx y(x) + hf(x,y).\]
-This statement says that if we know the solution ($y$-value) to the initial value problem for some given $x$-value, we can find an approximation for the solution at the value $x+h$ by taking our  $y$-value and adding $h$ times the function $f$ evaluated at the $x$ and $y$ values.
+This statement says that if we know the solution ($y$-value) to the initial value problem for some given $x$-value, we can find an approximation for the solution at the value $x+h$ by taking our  $y$-value and adding $h$ times the function $f$ evaluated at the $x$ and $y$ values. Euler's method uses the initial condition of an initial value problem as the starting point, and then uses the above idea to find approximate values for the solution $y$ at later $x$-values.  The algorithm is summarized in key idea \ref{idea:Euler}.
+
+
+\keyidea{idea:Euler}{Euler's Method}
+{Consider the initial value problem
+\[
+y' = f(x,y) \text{ with } y(x_0)=y_0.
+\]
+Let $h$ be a small positive number and $N$ be an integer.
+\begin{enumerate}
+\item The value $x_0$ is given by the initial condition.\\
+For $i = 0, 1, 2, \ldots, N-1,$ define
+\[x_{i+1} = x_0 + ih.\]
+\item  The value $y_0$ is given by the initial condition.\\
+For $i = 0, 1, 2, \ldots, N-1,$ define
+\[y_{i+1} = y_i + hf(x_i,y_i).\]
+\end{enumerate}
+This process yields a sequence of $N+1$ points $(x_i,y_i)$ for $i= 0,1,2,\ldots,N$, where $(x_i, y_i)$ is an approximation for $(x_i,y(x_i))$ for each $i$.
+}
+Let's practice Euler's Method using a few concrete examples.\\
+
+\example{ex_euler1}{Using Euler's Method 1}{
+Find an approximation at $x=2$ for the solution to $y' = x + y$ with $y(1)=-1$ using Euler's Method with $h=0.5$.
+}
+{Our initial condition yields the starting values $x_0 = 1$ and $y_0 = -1$.  With $h = 0.5,$ it takes $N=2$ steps to get to $x=2.$  Using steps 1 and 2 from the Euler's Method algorithm,
+\[
+\begin{array}{rl | rl}
+x_0  &= 1			& 	y_0	&= -1\\ \hline
+x_1 	&= x_0 + h 	& 	y_1 	&= y_0 + hf(x_0,y_0)\\
+	&= 1 + 0.5	 	&		&= -1 + 0.5(1 - 1)\\
+	&= 1.5		&		&= -1\\ \hline
+x_2	&= x_0 + 2h	&	y_2	&= y_1 + hf(x_1,y_1)\\
+	&= 1 + 2(0.5)	&		&= -1 + 0.5(1.5 -1)\\
+	&= 2			&		&= -0.75
+\end{array}
+\]
+Using Euler's method, we find the approximate $y(2) \approx -0.75.$
+
+To help visualize the Euler's method approximation, these three points (connected by line segments) are plotted along with the analytical solution to the initial value problem in figure \ref{fig:DE_01_ex_7}.
+}\\
+
+\mfigure{.8}{Euler's Method approximation to $y' = x + y$ with $y(1) = -1$, along with the analytical solution to the initial value problem.}{fig:DE_01_ex_7}{figures/figDE_01_ex_7}
+
+Let's repeat the previous example using a smaller $h$-value.\\
+
+\example{ex_euler2}{Using Euler's Method 2}{
+Find an approximation at $x=2$ for the solution to $y' = x + y$ with $y(1)=-1$ using Euler's Method with $h=0.25$.
+}
+{Our initial condition yields the starting values $x_0 = 1$ and $y_0 = -1$.  With $h = 0.25,$ it takes $N=4$ steps to get to $x=2.$  Using steps 1 and 2 from the Euler's Method algorithm (and rounding to 4 decimal points), we have
+\[
+\begin{array}{rl | rl}
+x_0  &= 1			& 	y_0	&= -1\\ \hline
+x_1 	&= 1.25		&	y_1 	&= -1 + 0.25(1 - 1)\\
+	&			&		&= -1\\ \hline
+x_2 	&= 1.5 		& 	y_2 	&= -1 + 0.25(1.25-1)\\
+	&			&		&= -0.9375\\ \hline
+x_3	&= 1.75		&	y_3 	&= -0.9375 + 0.25(1.5-0.9375)\\
+	&			&		&= -0.7969\\ \hline
+x_4	&= 2			&	y_4	&= -0.7969 + 0.25(1.75 - 0.7969)\\
+	&			&		&= -0.5586\\ \hline
+\end{array}
+\]
+Using Euler's method, we find the approximate $y(2) \approx -0.5584.$
+
+These five points, along with the points from example \ref{ex_euler1} and the analytic solution, are plotted in \ref{fig:DE_01_ex_8}.
+}\\
+
+\mfigure{.475}{Euler's Method approximations to $y' = x + y$ with $y(1) = -1$, along with the analytical solution.}{fig:DE_01_ex_8}{figures/figDE_01_ex_8}
+
+Using the results from examples \ref{ex_euler1} and \ref{ex_euler2}, we can make a few observations about Euler's method.  First, the Euler approximation gets successively worse as we get farther from the initial condition.  This is because Euler's method involves two sources of error.  The first comes from the fact that we're using a positive $h$-value in the derivative approximation instead of using a limit as $h$ approaches zero.  Essentially, we're using a linear approximation to the solution $y$ (similar to the process described in section \ref{sec:differentials} on differentials.) This error is often called the \emph{local truncation error.}  The second source of error comes from the fact that every step in Euler's method uses the result of the previous step.  That means we're using an approximate $y$-value to approximate the next $y$-value.  Doing this repeatedly cases the errors to build on each other.  This second type of error is often called the \emph{propagated} or \emph{accumulated error.} A second observation is that the Euler approximation is more accurate for smaller $h$-values.  This accuracy comes at a cost, though.  Example \ref{ex_euler2} is more accurate than example \ref{ex_euler1}, but takes twice as many computations.  In general, numerical algorithms (even when performed by a computer program) require striking a balance between a desired level of accuracy and the amount of computational effort we are willing to undertake.
+
+Let's do one final example of Euler's Method.
+
+\example{ex_euler3}{Using Euler's Method 3}{
+Find an approximation at $x=2$ for the solution to $y' = x + y$ with $y(1)=-1$ using Euler's Method with $h=0.25$.
+}
+{Our initial condition yields the starting values $x_0 = 1$ and $y_0 = -1$.  With $h = 0.25,$ it takes $N=4$ steps to get to $x=2.$  Using steps 1 and 2 from the Euler's Method algorithm (and rounding to 4 decimal points), we have
+\[
+\begin{array}{rl | rl}
+x_0  &= 1			& 	y_0	&= -1\\ \hline
+x_1 	&= 1.25		&	y_1 	&= -1 + 0.25(1 - 1)\\
+	&			&		&= -1\\ \hline
+x_2 	&= 1.5 		& 	y_2 	&= -1 + 0.25(1.25-1)\\
+	&			&		&= -0.9375\\ \hline
+x_3	&= 1.75		&	y_3 	&= -0.9375 + 0.25(1.5-0.9375)\\
+	&			&		&= -0.7969\\ \hline
+x_4	&= 2			&	y_4	&= -0.7969 + 0.25(1.75 - 0.7969)\\
+	&			&		&= -0.5586\\ \hline
+\end{array}
+\]
+Using Euler's method, we find the approximate $y(2) \approx -0.5584.$
+
+These five points, along with the points from example \ref{ex_euler1} and the analytic solution, are plotted in \ref{fig:DE_01_ex_8}.
+}\\
