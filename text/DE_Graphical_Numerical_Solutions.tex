@@ -37,9 +37,9 @@ In order to specify the value of the integration constant $C$, we require additi
 \definition{def:IVP}{Initial Value Problem}
 {A differential equation paired with an initial condition (or initial conditions) is called an \textbf{initial value problem.}\\
 
-The solution to an initial value problem is called a \textbf{particular solution} to the initial value problem.
+The solution to an initial value problem is called a \textbf{particular solution}. A particular solution does not include arbitrary constants.\\
 
-The solution to a differential that encompasses all possible solutions is called the \textbf{general solution} to the differential equation.
+The solution to a differential that encompasses all possible solutions is called the \textbf{general solution} to the differential equation. A general solution includes one or more arbitrary constants.
 }\\
 
 \example{ex_simple_de}{A simple first-order differential equation}{
@@ -102,6 +102,21 @@ Differentiating, $\displaystyle y' = -3Ce^{-3x} + \frac{\cos x}{2\sqrt{\sin x}}.
 &\ -3Ce^{-3x} + \frac{\cos x}{2\sqrt{\sin x}} + \frac{C e^{-3x} + \sqrt{\sin x}}{x} - \sqrt{C e^{-3x} + \sqrt{\sin x}} \neq 0.
 \end{align*}
 The function $\displaystyle y = C e^{-3x} + \sqrt{\sin x}$ is \emph{not} a solution to the differential equation.
+}\\
+
+\example{ex_verify_solutions2}{Verifying a Solution to a Differential Equation}{
+Verify that $x^2+y^2 = Cy$ is a solution to $\displaystyle y' = \frac{2xy}{x^2-y^2}.$}
+{The solution in this example is called an \emph{implicit solution.}  That means the dependent variable $y$ is a function of $x$, but has not been explicitly solved for.  Verifying the solution still involves differentiation, but we must take the derivatives implicitly.  Differentiating, we have
+\[2x + 2yy' = Cy'.\]
+Solving for $y',$ we have
+\[y' = \frac{2x}{C-2y}.\]
+From the solution, we know that $\displaystyle C = \frac{x^2+y^2}{y}.$ Then
+\begin{align*}
+y &= \frac{2x}{\displaystyle \frac{x^2+y^2}{y} - 2y}\\
+&=\frac{2xy}{x^2+y^2-2y^2}\\
+&= \frac{2xy}{x^2-y^2}.
+\end{align*}
+We have verified that $x^2+y^2 = Cy$ is a solution to $\displaystyle y' = \frac{2xy}{x^2-y^2}.$
 }
 
 
@@ -136,7 +151,7 @@ Continuing the above process and plotting the line segments with appropriate slo
 %\vskip -\baselineskip
 }\\
 
-\mfigure{.75}{Slope field for $y' = x+y$ from example \ref{ex_slope_field}.}{fig:DE_01_ex_4}{figures/figDE_01_ex_4}
+\mfigure{.8}{Slope field for $y' = x+y$ from example \ref{ex_slope_field}.}{fig:DE_01_ex_4}{figures/figDE_01_ex_4}
 
 \example{ex_IVP_graphical}{Finding a graphical solution to an initial value problem}{
 Find a graphical solution to the initial value problem $\displaystyle y' = x+y$ with $y(1)=-1$.}
@@ -150,10 +165,10 @@ Essentially, we sketch a solution to the initial value problem by starting at th
 %\vskip -\baselineskip
 }\\
 
-\mfigure{.5}{Solution to the initial value problem $y' = x+y$ with $y(1)=-1$ from example \ref{ex_IVP_graphical}}{fig:DE_01_ex_5}{figures/figDE_01_ex_5}
+\mfigure{.6}{Solution to the initial value problem $y' = x+y$ with $y(1)=-1$ from example \ref{ex_IVP_graphical}}{fig:DE_01_ex_5}{figures/figDE_01_ex_5}
 
 
-\mfigure{.275}{Slope field for the logistic differential equation $y' = y(1-y)$ from example \ref{ex_logistic_slope_field}.}{fig:DE_01_ex_6a}{figures/figDE_01_ex_6a}
+\mfigure{.375}{Slope field for the logistic differential equation $y' = y(1-y)$ from example \ref{ex_logistic_slope_field}.}{fig:DE_01_ex_6a}{figures/figDE_01_ex_6a}
 
 
 \example{ex_logistic_slope_field}{Using a slope field to predict long term behavior}{
@@ -255,7 +270,7 @@ Using Euler's method, we find the approximate $y(2) \approx -0.5584.$
 These five points, along with the points from example \ref{ex_euler1} and the analytic solution, are plotted in figure \ref{fig:DE_01_ex_8}.
 }\\
 
-\mfigure{.475}{Euler's Method approximations to $y' = x + y$ with $y(1) = -1$ from examples \ref{ex_euler1} and \ref{ex_euler2}, along with the analytical solution.}{fig:DE_01_ex_8}{figures/figDE_01_ex_8}
+\mfigure{.45}{Euler's Method approximations to $y' = x + y$ with $y(1) = -1$ from examples \ref{ex_euler1} and \ref{ex_euler2}, along with the analytical solution.}{fig:DE_01_ex_8}{figures/figDE_01_ex_8}
 
 Using the results from examples \ref{ex_euler1} and \ref{ex_euler2}, we can make a few observations about Euler's method.  First, the Euler approximation gets successively worse as we get farther from the initial condition.  This is because Euler's method involves two sources of error.  The first comes from the fact that we're using a positive $h$-value in the derivative approximation instead of using a limit as $h$ approaches zero.  Essentially, we're using a linear approximation to the solution $y$ (similar to the process described in section \ref{sec:differentials} on differentials.) This error is often called the \emph{local truncation error.}  The second source of error comes from the fact that every step in Euler's method uses the result of the previous step.  That means we're using an approximate $y$-value to approximate the next $y$-value.  Doing this repeatedly cases the errors to build on each other.  This second type of error is often called the \emph{propagated} or \emph{accumulated error.} A second observation is that the Euler approximation is more accurate for smaller $h$-values.  This accuracy comes at a cost, though.  Example \ref{ex_euler2} is more accurate than example \ref{ex_euler1}, but takes twice as many computations.  In general, numerical algorithms (even when performed by a computer program) require striking a balance between a desired level of accuracy and the amount of computational effort we are willing to undertake.
 
@@ -302,3 +317,5 @@ These 11 points, along with the  the analytic solution, are plotted in figure \r
 \mfigure{.8}{Euler's Method approximation to $y' = y(1-y)$ with $y(0) = 0.25$ from example \ref{ex_euler3}, along with the analytical solution.}{fig:DE_01_ex_9}{figures/figDE_01_ex_9}
 
 The study of differential equations is a natural extension of the study of derivatives and integrals.  The equations themselves involve derivatives, and methods to find analytic solutions often involve finding antiderivatives.   In this section, we focus on graphical and numerical techniques to understand solutions to differential equations.  We restrict our examples to relatively simple initial value problems where we can find analytic solution to the equations, but should remember that this is only for comparison purposes.  In reality, many differential equations, even some that appear straight forward, do not have solutions we can find analytically.  Even so, we can use the techniques presented in this section to understand the behavior of solutions.  In the next two sections, we explore two techniques to find analytic solutions to two different classes of differential equations.
+
+\printexercises{exercises/DE_01_exercises}
