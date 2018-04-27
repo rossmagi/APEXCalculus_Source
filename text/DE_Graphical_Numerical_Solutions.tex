@@ -229,7 +229,7 @@ Using Euler's method, we find the approximate $y(2) \approx -0.75.$
 To help visualize the Euler's method approximation, these three points (connected by line segments) are plotted along with the analytical solution to the initial value problem in figure \ref{fig:DE_01_ex_7}.
 }\\
 
-\mfigure{.8}{Euler's Method approximation to $y' = x + y$ with $y(1) = -1$, along with the analytical solution to the initial value problem.}{fig:DE_01_ex_7}{figures/figDE_01_ex_7}
+\mfigure{.8}{Euler's Method approximation to $y' = x + y$ with $y(1) = -1$ from example \ref{ex_euler1}, along with the analytical solution to the initial value problem.}{fig:DE_01_ex_7}{figures/figDE_01_ex_7}
 
 Let's repeat the previous example using a smaller $h$-value.\\
 
@@ -252,33 +252,53 @@ x_4	&= 2			&	y_4	&= -0.7969 + 0.25(1.75 - 0.7969)\\
 \]
 Using Euler's method, we find the approximate $y(2) \approx -0.5584.$
 
-These five points, along with the points from example \ref{ex_euler1} and the analytic solution, are plotted in \ref{fig:DE_01_ex_8}.
+These five points, along with the points from example \ref{ex_euler1} and the analytic solution, are plotted in figure \ref{fig:DE_01_ex_8}.
 }\\
 
-\mfigure{.475}{Euler's Method approximations to $y' = x + y$ with $y(1) = -1$, along with the analytical solution.}{fig:DE_01_ex_8}{figures/figDE_01_ex_8}
+\mfigure{.475}{Euler's Method approximations to $y' = x + y$ with $y(1) = -1$ from examples \ref{ex_euler1} and \ref{ex_euler2}, along with the analytical solution.}{fig:DE_01_ex_8}{figures/figDE_01_ex_8}
 
 Using the results from examples \ref{ex_euler1} and \ref{ex_euler2}, we can make a few observations about Euler's method.  First, the Euler approximation gets successively worse as we get farther from the initial condition.  This is because Euler's method involves two sources of error.  The first comes from the fact that we're using a positive $h$-value in the derivative approximation instead of using a limit as $h$ approaches zero.  Essentially, we're using a linear approximation to the solution $y$ (similar to the process described in section \ref{sec:differentials} on differentials.) This error is often called the \emph{local truncation error.}  The second source of error comes from the fact that every step in Euler's method uses the result of the previous step.  That means we're using an approximate $y$-value to approximate the next $y$-value.  Doing this repeatedly cases the errors to build on each other.  This second type of error is often called the \emph{propagated} or \emph{accumulated error.} A second observation is that the Euler approximation is more accurate for smaller $h$-values.  This accuracy comes at a cost, though.  Example \ref{ex_euler2} is more accurate than example \ref{ex_euler1}, but takes twice as many computations.  In general, numerical algorithms (even when performed by a computer program) require striking a balance between a desired level of accuracy and the amount of computational effort we are willing to undertake.
 
-Let's do one final example of Euler's Method.
+Let's do one final example of Euler's Method.\\
 
 \example{ex_euler3}{Using Euler's Method 3}{
-Find an approximation at $x=2$ for the solution to $y' = x + y$ with $y(1)=-1$ using Euler's Method with $h=0.25$.
+Find an approximation for the solution to the logistic differential equation\\
+$y' = y(1-y)$ with $y(0) = 0.25$, for $0 \leq y \leq 4.$  Use $N = 10$ steps.
 }
-{Our initial condition yields the starting values $x_0 = 1$ and $y_0 = -1$.  With $h = 0.25,$ it takes $N=4$ steps to get to $x=2.$  Using steps 1 and 2 from the Euler's Method algorithm (and rounding to 4 decimal points), we have
+{The logistic differential equation is what is called an \emph{autonomous equation}.  An autonomous differential equation  has no explicit dependence on the independent variable ($t$ in this case).  This has no real effect on the application of Euler's method other than the fact that the function $f(t,y)$ is really just a function of $y$.  To take steps in the $y$ variable, we use
+\[y_{i+1} = y_i + hf(t_i,y_i) = y_i + hy_i(1-y_i).\]
+
+Using $N=10$ steps requires $\displaystyle h = \frac{4-0}{10} = 0.4.$  Implementing Euler's Method, we have
+
 \[
 \begin{array}{rl | rl}
-x_0  &= 1			& 	y_0	&= -1\\ \hline
-x_1 	&= 1.25		&	y_1 	&= -1 + 0.25(1 - 1)\\
-	&			&		&= -1\\ \hline
-x_2 	&= 1.5 		& 	y_2 	&= -1 + 0.25(1.25-1)\\
-	&			&		&= -0.9375\\ \hline
-x_3	&= 1.75		&	y_3 	&= -0.9375 + 0.25(1.5-0.9375)\\
-	&			&		&= -0.7969\\ \hline
-x_4	&= 2			&	y_4	&= -0.7969 + 0.25(1.75 - 0.7969)\\
-	&			&		&= -0.5586\\ \hline
+x_0  &= 0			& 	y_0	&= 0.25\\ \hline
+x_1 	&= 0.4		&	y_1 	&= 0.25 + 0.4(0.25)(1-0.25)\\
+	&			&		&= 0.325\\ \hline
+x_2 	&= 0.8 		& 	y_2 	&= 0.325 + 0.4(0.325)(1-0.325)\\
+	&			&		&= 0.41275\\ \hline
+x_3	&= 1.2		&	y_3 	&= 0.41275 + 0.4(0.41275)(1-0.41275)\\
+	&			&		&= 0.50970\\ \hline
+x_4	&= 1.6		&	y_4	&= 0.50970 + 0.4(0.50970)(1 - 0.50970)\\
+	&			&		&= 0.60966\\ \hline
+x_5  &= 2.0		& 	y_5	&= 0.60966 + 0.4(0.60966)(1-0.60966)\\
+	&=			&		&=  0.70485\\ \hline
+x_6 	&= 2.4		&	y_6 	&= 0.70485 + 0.4(0.70485)(1 - 0.70485)\\
+	&			&		&= 0.78806\\ \hline
+x_7 	&= 2.8 		& 	y_7 	&= 0.78806 + 0.4(0.78806)(1-0.78806)\\
+	&			&		&= 0.85487\\ \hline
+x_8	&= 3.2		&	y_8 	&= 0.85487 + 0.4(0.85487)(1-0.85487)\\
+	&			&		&= 0.90450\\ \hline
+x_9	&= 3.6		&	y_9	&= 0.90450 + 0.4(0.90450)(1 - 0.90450)\\
+	&			&		&= 0.93905\\ \hline
+x_{10}&= 4.0		&	y_{10}&= 0.93905 + 0.4(0.93905)(1 - 0.93905)\\
+	&			&		&= 0.96194\\ \hline
 \end{array}
 \]
-Using Euler's method, we find the approximate $y(2) \approx -0.5584.$
 
-These five points, along with the points from example \ref{ex_euler1} and the analytic solution, are plotted in \ref{fig:DE_01_ex_8}.
+These 11 points, along with the  the analytic solution, are plotted in figure \ref{fig:DE_01_ex_9}.
 }\\
+
+\mfigure{.8}{Euler's Method approximation to $y' = y(1-y)$ with $y(0) = 0.25$ from example \ref{ex_euler3}, along with the analytical solution.}{fig:DE_01_ex_9}{figures/figDE_01_ex_9}
+
+The study of differential equations is a natural extension of the study of derivatives and integrals.  The equations themselves involve derivatives, and methods to find analytic solutions often involve finding antiderivatives.   In this section, we focus on graphical and numerical techniques to understand solutions to differential equations.  We restrict our examples to relatively simple initial value problems where we can find analytic solution to the equations, but should remember that this is only for comparison purposes.  In reality, many differential equations, even some that appear straight forward, do not have solutions we can find analytically.  Even so, we can use the techniques presented in this section to understand the behavior of solutions.  In the next two sections, we explore two techniques to find analytic solutions to two different classes of differential equations.
