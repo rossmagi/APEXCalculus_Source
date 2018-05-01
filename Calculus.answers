@@ -4,3 +4,4 @@
 \noindent {\bf Section 1.1} \vskip \baselineskip 
 
 \printanswers {exercises/DE_01_exercises}
+\end {multicols}\normalsize 
