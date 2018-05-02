@@ -1,0 +1,60 @@
+
+\section{Separable Differential Equations}\label{sec:Separable}
+
+Similar to algebraic equations, there are specific techniques that can be used to solve specific types of differential equations.  In algebra, we can use the quadratic formula to solve a quadratic equation, but not a linear or cubic equation.  In the same way, techniques that can be used for a specific type of differential equation are completely ineffective for a differential equation of a different type.  In this section, we describe and practice a technique to solve a class of differential equations called \emph{separable equations.}
+
+\definition{def:Separable}{Separable Differential Equation}
+{A \textbf{separable differential equation} is one that can be written in the form
+\[\displaystyle n(y) \frac{dy}{dx} = m(x),\]
+where $n$ is a function that depends only on the dependent variable $y$ and $m$ is a function that depends only on the independent variable $x$.
+}
+
+Below, we show a few examples of separable differential equations, along with similar looking equations that are not separable.
+\vskip \baselineskip
+\begin{minipage}[t]{.5\linewidth}
+\begin{center} \textbf{Separable} \end{center}
+\begin{enumerate}
+\item $\displaystyle \frac{dy}{dx} = x^2y$
+\item $\displaystyle y\sqrt{y^2-1} \frac{dy}{dx} - \sin x \cos x = 0$
+\item $\displaystyle \frac{dy}{dx} = \frac{(x^2 + 1)e^{y}}{y}$
+\end{enumerate}
+\end{minipage}
+\begin{minipage}[t]{.5\linewidth}
+\begin{center} \textbf{Not Separable} \end{center}
+\begin{enumerate}
+\item $\displaystyle \frac{dy}{dx} = x^2 + y$
+\item $\displaystyle y\sqrt{y^2-1} \frac{dy}{dx} - \sin x \cos y = 0$
+\item $\displaystyle \frac{dy}{dx} = \frac{(xy + 1)e^{y}}{y}$
+\end{enumerate}
+\end{minipage}
+
+\vskip \baselineskip
+
+Notice that a separable equation requires that the functions of the dependent and independent variables be multiplied, not added (like example 1 of the not separable column). An alternate definition of a separable equation is one that can be written in the form
+\[\frac{dy}{dx} = f(x)g(y),\]
+for some functions $f$ and $g$.
+
+\newpage
+\noindent\textbf{\large Separation of Variables}
+\vskip\baselineskip
+
+Let's find a formal solution to the separable equation
+\[\displaystyle n(y) \frac{dy}{dx} = m(x).\]
+Since the functions on the left and right hand sides of the equation are equal, their antiderivatives should be equal up to an arbitrary constant of integration. That is
+\[ \displaystyle \int n(y) \frac{dy}{dx}\,dx = \int m(x)\, dx + C.\]
+Though the integral on the left may look a bit strange, recall that $y$ itself is a function of $x$.  Consider a $u$-substitution, $u = y(x)$.  The differential is $du = \displaystyle \frac{dy}{dx}\,dx.$  Using this substitution, the above equation is
+\[\int n(u)\,du = \int m(x)\,dx + C.\]
+Let $N(u)$ and $M(x)$ be antiderivatives of $n(u)$ and $m(x)$, respectively.  Then
+\[N(u) = M(x) + C.\]
+Since $u = y(x)$, this is
+\[N(y) = M(x) + C.\]
+This relationship between $y$ and $x$ is an implicit form of the solution to the differential equation.  Sometimes (but not always) it is possible to solve for $y$ to find an explicit version of the solution.
+
+Though the technique outlined above is formally correct, what we did essentially amounts to integrating the function $n$ with respect to its variable and integrating the function $m$ with respect to its variable.  The informal way to solve a separable equation is to treat the derivative $\displaystyle \frac{dy}{dx}$ as if it were a fraction.  The separated form of the equation is
+\[ n(y)\,dy = m(x)\, dx.\]
+To solve, we integrate the left and side with respect to $y$ and the right hand side with respect to $x$ and add a constant of integration.  As long as we are able to find the antiderivatives, we can find an implicit form for the solution.
+
+
+
+
+%\printexercises{exercises/DE_02_exercises}
