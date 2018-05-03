@@ -15,7 +15,7 @@ Below, we show a few examples of separable differential equations, along with si
 \begin{center} \textbf{Separable} \end{center}
 \begin{enumerate}
 \item $\displaystyle \frac{dy}{dx} = x^2y$
-\item $\displaystyle y\sqrt{y^2-1} \frac{dy}{dx} - \sin x \cos x = 0$
+\item $\displaystyle y\sqrt{y^2-5} \frac{dy}{dx} - \sin x \cos x = 0$
 \item $\displaystyle \frac{dy}{dx} = \frac{(x^2 + 1)e^{y}}{y}$
 \end{enumerate}
 \end{minipage}
@@ -52,9 +52,47 @@ This relationship between $y$ and $x$ is an implicit form of the solution to the
 
 Though the technique outlined above is formally correct, what we did essentially amounts to integrating the function $n$ with respect to its variable and integrating the function $m$ with respect to its variable.  The informal way to solve a separable equation is to treat the derivative $\displaystyle \frac{dy}{dx}$ as if it were a fraction.  The separated form of the equation is
 \[ n(y)\,dy = m(x)\, dx.\]
-To solve, we integrate the left and side with respect to $y$ and the right hand side with respect to $x$ and add a constant of integration.  As long as we are able to find the antiderivatives, we can find an implicit form for the solution.
+To solve, we integrate the left and side with respect to $y$ and the right hand side with respect to $x$ and add a constant of integration.  As long as we are able to find the antiderivatives, we can find an implicit form for the solution. We'll practice the technique by solving the three differential equations listed in the separable column above.\\
 
+\example{ex_separable_DE}{Solving a Separable Differential Equation}{
+Find the general solution to the differential equation $\displaystyle \frac{dy}{dx} = x^2y$.}
+{Using the informal solution method outlined above, we treat $\displaystyle \frac{dy}{dx}$ as a fraction, and write the separated form of the differential equation as
+\[\frac{dy}{y} = x^2 dx.\]
+Integrating the left hand side of the equation with respect to $y$ and the right hand side of the equation with respect to $x$ yields
+\[\ln |y| = \frac{1}{3}x^3 + C.\]
+This is an implicit form of the solution to the differential equation.  Solving for $y$ yields an explicit form for the solution.  Exponentiating both sides, we have
+\[|y| = e^{x^2 + C} = e^{x^2}e^C.\]
+This solution is a bit problematic. First, the absolute value makes the solution difficult to understand.  The second issue comes from our desire to find the \emph{general solution.}  Recall that a general solution includes all possible solutions to the differential equation.  In other words, for any given initial condition, the general solution must include the solution to that specific initial value problem.  We can often satisfy any given initial condition by choosing an appropriate $C$ value.  When solving separable equations, though, it is possible to lose solutions that have the form $y = $ constant.  Notice that $y=0$ solves the differential equation, but it is not possible to choose a finite $C$ to make our solution look like $y=0$.  Our solution cannot solve the initial value problem $\displaystyle \frac{dy}{dx} = x^2y$, with $y(a) = 0$ (where $a$ is any value).  Thus, we haven't actually found a general solution to the problem. We can clean up the solution and recover the missing solution with a bit of clever thought.
 
+Recall the formal definition of the absolute value: $|y| = y$ if $y \geq 0$ and $|y| =  -y$ if $y < 0.$
+So our solution is either $y = e^C e^{x^2}$ or $y = - e^C e^{x^2}$.  Further, note that $C$ is constant, so $e^C$ is also constant.  If we write our solution as $y = Ce^{x^2}$, and allow $C$ to take on both positive and negative values, we incorporate both cases of the absolute value. Finally, if we allow $C$ to be zero, we recover the missing solution discussed above.  The best way to express the general solution to our differential equation is
+\[y = Ce^{x^2}.\]
+}
+
+\mnote{.7}{\textbf{Note:} The indefinite integrals $\displaystyle \int \frac{dy}{y}\,dy$ and $\displaystyle \int x^2\, dx$ both produce arbitrary constants.  Since both constants are arbitrary, we combine them into a single constant of integration.}
+
+\mnote{.32}{\textbf{Note:} Missing constant solutions can't always be recovered by cleverly redefining the arbitrary constant.  The differential equation $\displaystyle \frac{dy}{dx} = y^2 - 1$ is an example of this fact.  Both $y=1$ and $y=-1$ are constant solutions to this differential equation.  Separation of variables yields a solution where $y=1$ can be attained by choosing an appropriate $C$ value, but $y=-1$ can't.  The general solution is the set containing the solution produced by separation of variables \emph{and} the missing solution $y=-1.$ We should always be careful to look for missing constant solutions when seeking the general solution to a separable differential equation.}
+\newpage
+
+\example{ex_separable_IVP}{Solving a Separable Initial Value Problem}{
+Solve the initial value problem $\displaystyle y\sqrt{y^2-5}\, \frac{dy}{dx} - \sin x \cos x = 0$, with $y(0) = -3$.}
+{We first put the differential equation in separated the separated form
+\[y\sqrt{y^2-5}\,dy = \sin x \cos x\, dx.\]
+The indefinite integral $\displaystyle \int y\sqrt{y^2-5}\,dy$ requires the substitution $u = y^2-5$. Using this substitute yields the antiderivative $\displaystyle \frac{1}{3} (y^2-5)^{3/2}.$ The indefinite integral $\displaystyle \int \sin x \cos x\,dx$ requires the substitution $u = \sin x.$ Using this substitution yields the antiderivative $\displaystyle \frac{1}{2} \sin^2 x.$  Thus, we have an implicit form of the solution to the differential equation given by
+\[ \frac{1}{3} (y^2-5)^{3/2} = \frac{1}{2} \sin^2 x + C.\]
+The initial condition says that $y$ should be $-3$ when $x$ is $0$, or
+\[ \frac{1}{3} ((-3)^2 - 5)^{3/2} = \frac{1}{2} \sin^2 0 + C.\]
+This is $C = 8/3,$ yielding the particular solution to the initial value problem
+\[ \frac{1}{3} (y^2-5)^{3/2} = \frac{1}{2} \sin^2 x + \frac{8}{3}.\]
+}
+
+\vskip \baselineskip
+
+\example{ex_separable_DE2}{Solving a Separable Differential Equation}{
+Find the general solution to the differential equation $\displaystyle \frac{dy}{dx} = \frac{(x^2 + 1)e^{y}}{y}$.}
+{
+
+}
 
 
 %\printexercises{exercises/DE_02_exercises}
