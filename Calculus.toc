@@ -3,5 +3,5 @@
 \contentsline {chapter}{Preface}{v}{section*.2}
 \contentsline {chapter}{\numberline {1}Differential Equations}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Graphical and Numerical Solutions to Differential Equations}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Separable Differential Equations}{14}{section.1.2}
+\contentsline {section}{\numberline {1.2}Separable Differential Equations}{15}{section.1.2}
 \contentsline {chapter}{\numberline {A}Solutions To Selected Problems}{A.1}{appendix.A}
