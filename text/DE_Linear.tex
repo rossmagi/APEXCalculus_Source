@@ -3,7 +3,7 @@
 
 In the previous section, we explored a specific techique to solve a specific type of differential equation; a separable differential equation.  In this section, we develop and practice a technique to solve a type of differential equation called a \emph{first order linear} differential equation.
 
-Recall than an algebraic equation in one variable is one that can be written $ax + b = 0,$ where $a$ and $b$ are real numbers.  Notice that the variable $x$ appears to the first power.  The equations $\sqrt{x}+1=0$ and $\sin(x)-3x = 0$ are both nonlinear. A linear differential equation is one in which the dependent variable and its derivatives appear only to the first power.  We focus on first order equations, which first (but not higher order) derivatives of the independent variable.
+Recall than a linear algebraic equation in one variable is one that can be written $ax + b = 0,$ where $a$ and $b$ are real numbers.  Notice that the variable $x$ appears to the first power.  The equations $\sqrt{x}+1=0$ and $\sin(x)-3x = 0$ are both nonlinear. A linear differential equation is one in which the dependent variable and its derivatives appear only to the first power.  We focus on first order equations, which involve first (but not higher order) derivatives of the dependent variable.
 
 \definition{def:Linear}{First Order Linear Differential Equation}
 {A \textbf{first order linear differential equation} is a differential equation that can be written in the form
@@ -14,7 +14,7 @@ where $p$ and $q$ are arbitrary functions of the independent variable $x$.
 }
 
 \example{ex_identify_linear}{Classifying Differential Equations}{
-Classify the followind differential equations as first order linear, separable, both, or neither.\\
+Classify each differential equation as first order linear, separable, both, or neither.\\
 \begin{minipage}[h]{.5\linewidth}
 	\begin{enumerate}
 		\item[(a)] $\displaystyle \frac{dy}{dx} = xy$
@@ -30,11 +30,11 @@ Classify the followind differential equations as first order linear, separable, 
 }
 {(a)\ Both.  We identify $p(x) = -x$ and $q(x) = 0.$  The separated form of the equation is $\displaystyle \frac{dy}{y} = x\,dx.$\\
 (b)\ Neither.  The $e^y$ term makes the equation nonlinear.  Because of the addition, it is not possible to write the equation in separated form.\\
-(c)\ First order linear.  We identify $p(x) = -\cos x$ and $q(x) = \sin x.$  The equation cannot be written in separated form.\\
+(c)\ First order linear.  We identify $p(x) = -\cos x$ and $q(x) = \cos x.$  The equation cannot be written in separated form.\\
 (d)\ Neither.  Notice that dividing by $y$ results in the nonlinear term $\displaystyle \frac{4\ln x}{y}.$ It is not possible to write the equation in separated form.
 }\\
 
-Notice that linearity depends on the dependent variable $y$, not the independent variable $x$.  The functions $p(x)$ and $q(x)$ need not be linear as demonstrated in part (c) of example \ref{ex_identify_linear}.  Neither $\cos x$ nor $\sin x$ are linear functions of $x$, but the differential equation is still linear.
+Notice that linearity depends on the dependent variable $y$, not the independent variable $x$.  The functions $p(x)$ and $q(x)$ need not be linear, as demonstrated in part (c) of example \ref{ex_identify_linear}.  Neither $\cos x$ nor $\sin x$ are linear functions of $x$, but the differential equation is still linear.
 
 \vskip\baselineskip
 \noindent\textbf{\large Solving First Order Linear Equations}
@@ -48,7 +48,7 @@ If we multiply both sides of the differential equation by $x$ and use our observ
 	\[
 		\frac{d}{dx}\big(xy\big) = \sin x \cos x .
 	\]
-Integrating both sides of the equation with respect to $x$ and using the substitution $u = \sin x$ on the right results in the implicit solution
+We can now integrate both sides of the differential equation with respect to $x$. On th left, the antiderivative of the derivative is simply the function $xy.$  Using the substitution $u = \sin x$ on the right results in the implicit solution
 	\[
 		xy = \frac{1}{2}\sin^2 x + C.
 	\]
@@ -59,7 +59,7 @@ Solving for $y$ yields the explicit solution
 	
 \mnote{.45}{\textbf{Note:} In the examples in the previous section, we performed operations on the arbitrary constant $C$, but still called the result $C$. The justification is that the result after the operation is \emph{still} an arbitrary contant.  Here, we divide $C$ by $x$, so the result depends explicitly on the independent variable $x$.  Since $C/x$ is \emph{not} contant, we can't just call it $C$.}
 
-As motivated by the problem we just solved, the basic idea behing solving first order linear differential equations is to multiply both sides of the differential equation by a function, called an \emph{integrating factor}, that makes the left hand side of the equation look like an expanded product rule.  We then condense the left hand side into the derivative of a product and integrate both sides. An obvious question is how to find the integrating factor.
+As motivated by the problem we just solved, the basic idea behind solving first order linear differential equations is to multiply both sides of the differential equation by a function, called an \emph{integrating factor}, that makes the left hand side of the equation look like an expanded product rule.  We then condense the left hand side into the derivative of a product and integrate both sides. An obvious question is how to find the integrating factor.
 
 Consider the first order linear equation
 	\[
@@ -71,9 +71,9 @@ Let's call the integrating factor $\mu(x)$.  We multiply both sides of the diffe
 	\]
 Our goal is to choose $\mu(x)$ so that the left hand side of the differential equation looks like the result of a product rule.  The left hand side of the equation is
 	\[
-		\mu(x) \frac{dy}{dx} + \mu(x)p(x)y,
+		\mu(x) \frac{dy}{dx} + \mu(x)p(x)y.
 	\]
-and using the product rule and implicit differentiation,
+Using the product rule and implicit differentiation,
 	\[
 		\frac{d}{dx} \big ( \mu(x) y \big ) = \frac{d\mu}{dx}y + \mu(x)\frac{dy}{dx}.
 	\]
@@ -97,7 +97,7 @@ or
 	\[
 		\mu(x) = e^{\int p(x)\,dx}.
 	\]
-If $\mu(x)$ is chosen this way, the differential equation can be written in the form
+If $\mu(x)$ is chosen this way, after multiplying by $\mu(x)$, we can always write the differential equation in the form
 	\[
 		\frac{d}{dx} \big( \mu(x)y \big) = \mu(x)q(x).
 	\]
@@ -108,7 +108,7 @@ Integrating and solving for $y$, the explicit solution is
 	
 \mnote{.45}{\textbf{Note:} Following the steps outlined in the previous section, we should technically end up with $\mu(x) = Ce^{\int p(x)\,dx},$ where $C$ is an arbitrary constant.  Because we multiply both sides of the differential equation by $\mu(x)$, the arbitrary constant cancels, and we omit it when finding the integrating factor. }
 
-Though this formula can be used to write down the solution to a first order linear equation, the process is lost by simply memorizing a formula, and always always follow the steps outlined in key idea \ref{idea:solving_linear} when solving equations of this type.
+Though this formula can be used to write down the solution to a first order linear equation, we shy away from simply memorizing a formula. The process is lost, and it's easy to forget the formula. Rather, we always always follow the steps outlined in key idea \ref{idea:solving_linear} when solving equations of this type.
 
 \keyidea{idea:solving_linear}{Solving First Order Linear Equations}
 {
@@ -150,13 +150,13 @@ The left hand side of the differential equation condenses to yield
 	\[
 		\frac{d}{dx} \left ( e^{-\frac{1}{2}x^2}y\right ) = 0.
 	\]
-We integrate both sides with respect to $x$ to find
+We integrate both sides with respect to $x$ to find the implicit solution
 	\[
 		e^{-\frac{1}{2}x^2}y = C,
 	\]
 or the explicit solution
 	\[
-		y  = Ce^{-\frac{1}{2}x^2}.
+		y  = Ce^{\frac{1}{2}x^2}.
 	\]
 }
 
@@ -186,6 +186,10 @@ The explicit form of the general solution is
 
 \vskip\baselineskip
 
+We continue our practice by finding the particular solution to an initial value problem.
+
+\vskip\baselineskip
+
 \example{ex_linear_ivp}{Solving a First Order Linear Initial Value Problem}{
 Solve the initial value problem $\displaystyle x\frac{dy}{dx} - y = x^3\ln x$, with $y(1)=0.$}
 {We first divide by $x$ to get
@@ -203,7 +207,7 @@ Multiplying both sides of the differential equation by the integrating factor an
 	\[
 		\frac{d}{dx} \left( \frac{y}{x}\right) = x\ln x.
 	\]
-Using integrating by parts to fidnd the antiderivative of $x\ln x$, we find the implicit solution
+Using integrating by parts to find the antiderivative of $x\ln x$, we find the implicit solution
 	\[
 		\frac{y}{x} = \frac{1}{2}x^2\ln x - \frac{1}{4}x^2 + C.
 	\]
@@ -219,7 +223,7 @@ The initial condition $y(1) = 0$ yields $C = 1/4.$  The solution to the initial 
 
 \vskip\baselineskip
 
-Differential equations are a valuable took for exploring various problems in physics. This process of using equations to describe real world situations is called mathematical modeling, and is the topic of the next section.  The last two examples in this section begin our discussion of mathematical modeling.
+Differential equations are a valuable tool for exploring various physical problems. This process of using equations to describe real world situations is called mathematical modeling, and is the topic of the next section.  The last two examples in this section begin our discussion of mathematical modeling.
 
 \vskip\baselineskip
 
@@ -227,9 +231,9 @@ Differential equations are a valuable took for exploring various problems in phy
 Suppose an object with mass $m$ is dropped from an airplane.  Find and solve a differential equation describing the vertical velocity of the object assuming no air resistance.}
 {The basic physical law at play is Newton's second law,
 	\[
-		\text{force = mass} \times \text{acceleration}.
+		\text{mass} \times \text{acceleration} = \text{the sum of the forces}.
 	\]
-Using the fact that acceleration is the derivative of velocity, mass $\times$ acceleration can be writting $mv'.$  In the absence of air resistance, the only force of interest in the force due to gravity. This force is approximately constant, and is given by $mg$, where $g$ is the gravitational constant.  The word equation above can be written as the differential equation
+Using the fact that acceleration is the derivative of velocity, mass $\times$ acceleration can be writting $mv'.$  In the absence of air resistance, the only force of interest is the force due to gravity. This force is approximately constant, and is given by $mg$, where $g$ is the gravitational constant.  The word equation above can be written as the differential equation
 	\[
 		m\frac{dv}{dt} = mg.
 	\]
@@ -242,13 +246,13 @@ Since $v = C$ with $t=0$, we see that the arbitrary constant here corresponds to
 
 \vskip\baselineskip
 
-The process of mathematical modeling does not stop simply because we have found an answer.  We must examine the answer to see how well it can describe real world observations.  In the previous example, the answer may be somewhat useful for short times, but intuition tells us that something is missing.  Our answer says that a falling object's velocity will increase linearly as a function of time, but we know that a falling object will eventually approach a maximum velocity.  In order to describe this behaviour, our mathematical model must be revised.
+The process of mathematical modeling does not stop simply because we have found an answer.  We must examine the answer to see how well it can describe real world observations.  In the previous example, the answer may be somewhat useful for short times, but intuition tells us that something is missing.  Our answer says that a falling object's velocity will increase linearly as a function of time, but we know that a falling object does not speed up indefinitely.  In order to more fully describe real world behavior, our mathematical model must be revised.
 
 \vskip\baselineskip
 
 \example{ex_falling_object1}{A Falling Object with Air Resistance}{
 Suppose an object with mass $m$ is dropped from an airplane.  Find and solve a differential equation describing the vertical velocity of the object, taking air resistance into account.}
-{We still begin with Newon's second law, but now we assume that the forces in the object come both from gravity and from air resistance.  The gravitational force is still given by $mg$. For air resistance, we assume the force is related to the velocity of the object.  A simple way to describe this assumption might be $kv^p,$ where $k$ is a proportionality constant and $p$ is a positive real number.  The differential equation for the velocity is given by
+{We still begin with Newon's second law, but now we assume that the forces in the object come both from gravity and from air resistance.  The gravitational force is still given by $mg$. For air resistance, we assume the force is related to the velocity of the object.  A simple way to describe this assumption might be $kv^p,$ where $k$ is a proportionality constant and $p$ is a positive real number. The value $k$ depends on various factors such as the density of the object, surface area of the object, and density of the air. The value $p$ affects how changes in the velocity affect the force.  Taken together, a function of the form $kv^p$ is often called a \emph{power law}.   The differential equation for the velocity is given by
 	\[
 		m\frac{dv}{dt} = mg - kv^p.
 	\]
@@ -256,13 +260,13 @@ Suppose an object with mass $m$ is dropped from an airplane.  Find and solve a d
 	\[
 		\frac{m}{mg - kv^p}\,dv = dt.
 	\]
-For arbitrary positive $p$, the integration is difficult, making this problem hard to solve analytically.  In the case that $p=1$, the differential equation becomes linear, and is easy to solve either using the separation of variables or integrating factor techniques.  We assume $p=1$, and proceed with an integrating factor.  Writing
+For arbitrary positive $p$, the integration is difficult, making this problem hard to solve analytically.  In the case that $p=1$, the differential equation becomes linear, and is easy to solve either using either separation of variables or integrating factor techniques.  We assume $p=1$, and proceed with an integrating factor so we can continue practicing the process.  Writing
 	\[
 		\frac{dv}{dt} + \frac{k}{m}v = g,
 	\]
 we identify the integrating factor
 	\[
-		\mu(t) = e^{\frac{k}{m}t}.
+		\mu(t) = e^{\int \frac{k}{m}\,dt} = e^{\frac{k}{m}t}.
 	\]
 Then
 	\[
@@ -280,6 +284,8 @@ or
 
 \vskip\baselineskip
 
-In the solution above, the exponential term decays as time increases, causing the velocity to approch that constant value $mg/k$ in the limit as $t$ approaches infinity.  This value is called the \emph{terminal velocity}.  
+In the solution above, the exponential term decays as time increases, causing the velocity to approach the constant value $mg/k$ in the limit as $t$ approaches infinity.  This value is called the \emph{terminal velocity}.  If we assume a zero initial velocity (the object is dropped, not thrown from the plane), the velocities from examples \ref{ex_falling_object} and \ref{ex_falling_object1} are given by $v = gt$ and $v = \displaystyle \frac{mg}{k}\left (1 - e^{-\frac{k}{m}t}\right )$, respectively.  These two functions are shown in figure \ref{fig:DE_01_falling_object}, with $g = 9.8, m=1,$ and $k=1.$ Notice that the two curves agree well for short times, but have dramatically different behaviors as $t$ increases.  Part of the art in mathematical modeling is deciding on the level of detail required to answer the question of interest.   If we are only interested in the initial behavior of the falling object, the simple model in example \ref{ex_falling_object} may be sufficient.  If we are interested in the longer term behavior of the object, the simple model is not sufficient, and we should consider a more complicated model.
+
+\mfigure{.4}{The velocity function from examples \ref{ex_falling_object} (dashed) and \ref{ex_falling_object1} (solid) under the assumption that $v(0)=0$, with $g=9.8, m=1$ and $k=1.$}{fig:DE_01_falling_object}{figures/figDE_01_falling_object}
 
 %\printexercises{exercises/DE_03_exercises}
