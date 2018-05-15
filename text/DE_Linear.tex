@@ -184,4 +184,102 @@ The explicit form of the general solution is
 	\]
 }
 
+\vskip\baselineskip
+
+\example{ex_linear_ivp}{Solving a First Order Linear Initial Value Problem}{
+Solve the initial value problem $\displaystyle x\frac{dy}{dx} - y = x^3\ln x$, with $y(1)=0.$}
+{We first divide by $x$ to get
+	\[
+		\frac{dy}{dx}-\frac{1}{x}y = x^2\ln x.
+	\]
+The integrating factor is given by
+	\begin{align*}
+		\mu(x) &= e^{-\int \frac{1}{x}\,dx}\\
+		&= e^{-\ln x}\\
+		&= e^{\ln x^{-1}}\\
+		&= x^{-1}.
+	\end{align*}
+Multiplying both sides of the differential equation by the integrating factor and condensing the left hand side, we have
+	\[
+		\frac{d}{dx} \left( \frac{y}{x}\right) = x\ln x.
+	\]
+Using integrating by parts to fidnd the antiderivative of $x\ln x$, we find the implicit solution
+	\[
+		\frac{y}{x} = \frac{1}{2}x^2\ln x - \frac{1}{4}x^2 + C.
+	\]
+Solving for $y$, the explicit solution is
+	\[
+		y = \frac{1}{2}x^3\ln x - \frac{1}{4}x^3 + Cx.
+	\]
+The initial condition $y(1) = 0$ yields $C = 1/4.$  The solution to the initial value problem is
+	\[
+		y = \frac{1}{2}x^3\ln x - \frac{1}{4}x^3 + \frac{1}{4}x.
+	\]
+}
+
+\vskip\baselineskip
+
+Differential equations are a valuable took for exploring various problems in physics. This process of using equations to describe real world situations is called mathematical modeling, and is the topic of the next section.  The last two examples in this section begin our discussion of mathematical modeling.
+
+\vskip\baselineskip
+
+\example{ex_falling_object}{A Falling Object Without Air Resistance}{
+Suppose an object with mass $m$ is dropped from an airplane.  Find and solve a differential equation describing the vertical velocity of the object assuming no air resistance.}
+{The basic physical law at play is Newton's second law,
+	\[
+		\text{force = mass} \times \text{acceleration}.
+	\]
+Using the fact that acceleration is the derivative of velocity, mass $\times$ acceleration can be writting $mv'.$  In the absence of air resistance, the only force of interest in the force due to gravity. This force is approximately constant, and is given by $mg$, where $g$ is the gravitational constant.  The word equation above can be written as the differential equation
+	\[
+		m\frac{dv}{dt} = mg.
+	\]
+Because $g$ is constant, this differential equation is simply an integration problem, and we find
+	\[
+		v = gt + C.
+	\]
+Since $v = C$ with $t=0$, we see that the arbitrary constant here corresponds to the initial vertical velocity of the object.
+}
+
+\vskip\baselineskip
+
+The process of mathematical modeling does not stop simply because we have found an answer.  We must examine the answer to see how well it can describe real world observations.  In the previous example, the answer may be somewhat useful for short times, but intuition tells us that something is missing.  Our answer says that a falling object's velocity will increase linearly as a function of time, but we know that a falling object will eventually approach a maximum velocity.  In order to describe this behaviour, our mathematical model must be revised.
+
+\vskip\baselineskip
+
+\example{ex_falling_object1}{A Falling Object with Air Resistance}{
+Suppose an object with mass $m$ is dropped from an airplane.  Find and solve a differential equation describing the vertical velocity of the object, taking air resistance into account.}
+{We still begin with Newon's second law, but now we assume that the forces in the object come both from gravity and from air resistance.  The gravitational force is still given by $mg$. For air resistance, we assume the force is related to the velocity of the object.  A simple way to describe this assumption might be $kv^p,$ where $k$ is a proportionality constant and $p$ is a positive real number.  The differential equation for the velocity is given by
+	\[
+		m\frac{dv}{dt} = mg - kv^p.
+	\]
+(Notice that the force from air resistance opposes motion, and points in the opposite direction as the force from gravity.)  This differential equation is separable, and can be written in the separated form
+	\[
+		\frac{m}{mg - kv^p}\,dv = dt.
+	\]
+For arbitrary positive $p$, the integration is difficult, making this problem hard to solve analytically.  In the case that $p=1$, the differential equation becomes linear, and is easy to solve either using the separation of variables or integrating factor techniques.  We assume $p=1$, and proceed with an integrating factor.  Writing
+	\[
+		\frac{dv}{dt} + \frac{k}{m}v = g,
+	\]
+we identify the integrating factor
+	\[
+		\mu(t) = e^{\frac{k}{m}t}.
+	\]
+Then
+	\[
+		\frac{d}{dt}\left(e^{\frac{k}{m}t}v \right) = ge^{\frac{k}{m}t},
+	\]
+so
+	\[
+		e^{\frac{k}{m}t}v = \frac{mg}{k}e^{\frac{k}{m}t} + C,
+	\]
+or
+	\[
+		v = \frac{mg}{k}+ Ce^{-\frac{k}{m}t}.
+	\]
+}
+
+\vskip\baselineskip
+
+In the solution above, the exponential term decays as time increases, causing the velocity to approch that constant value $mg/k$ in the limit as $t$ approaches infinity.  This value is called the \emph{terminal velocity}.  
+
 %\printexercises{exercises/DE_03_exercises}
