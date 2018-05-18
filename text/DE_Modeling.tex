@@ -92,7 +92,7 @@ We finish our discussion of models of proportional change by exploring three dif
 
 \vskip\baselineskip
 
-\example{ex_disease_exponential}{Disease Spread 1}{Suppose a disease spreads at a rate proportional to the number of individuals who are sick.  If 5\% of the population is sick initially and 10\% of the population is sick one week later, find a formula for the proportion of the popoulation that is sick at time $t$.}
+\example{ex_disease_exponential}{Disease Spread 1}{Suppose a disease spreads through a population at a rate proportional to the number of individuals who are sick.  If 5\% of the population is sick initially and 10\% of the population is sick one week later, find a formula for the proportion of the popoulation that is sick at time $t$.}
 {The assumption here seems to have some merit because it matches our intuition that a disease should spread more rapidly when more individuals are sick.  The differential equation is simply
 	\[
 		\frac{dy}{dt} = ky,
@@ -105,7 +105,42 @@ The conditions $y(0)=0.05$ and $y(1) = 0.1$ lead to $C = 0.05$ a and $k = \ln 2$
 	\[
 		y = 0.05e^{(\ln 2)t}.
 	\]
-We should point out a glaring problem with this model.  The variable $y$ is a proportion and should be a value between 0 and 1, but the function $y = 0.05e^{2t}$ grows without bound.  After $t \approx 4.32$ weeks, the $y$ exceeds 1, and the model ceases to make physical sense.
+We should point out a glaring problem with this model.  The variable $y$ is a proportion and should take on values between 0 and 1, but the function $y = 0.05e^{2t}$ grows without bound.  After $t \approx 4.32$ weeks, $y$ exceeds 1, and the model ceases to make physical sense.
+}\\
+
+\example{ex_disease_newton}{Disease Spread 2}{Suppose a disease spreads through a population at a rate proportional to the number of individuals who are not sick.  If 5\% of the population is sick initially and 10\% of the population is sick one week later, find a formula for the proportion of the popoulation that is sick at time $t$}
+{The intuition behind the assumption here is that a disease can only spread if there are individuals who are susceptible to the infection.  As fewer and fewer people are able to be infected, the disease spread should slow down.  Since $y$ is proportion of the population that is sick, $1-y$ is the proportion who are not sick, and the differential equation is
+	\[
+		\frac{dy}{dt} = k(1-y).
+	\]
+Though the context is quite different, the differential equation is identical to the differential equation for Newton's Law of Cooling, with $A=1$.  The solution is
+	\[
+		y = 1 - Ce^{-kt}.
+	\]
+The conditions $y(0)=0.05$ and $y(1) = 0.1$ yield $C = 0.95$ and $k = -\ln\left(\frac{18}{19}\right) \approx 0.0541,$ so the final function is
+	\[
+		y = 1-.95e^{\ln\left(\frac{18}{19}\right)t}.
+	\]
+Notice that this function approches $y=1$ in the limit as $t \to \infty,$ and does not suffer from the non-physical behavior described in example \ref{ex_disease_exponential}.
+}\\
+
+In example \ref{ex_disease_exponential}, we assume disease spread depends on the number of infected individuals.  In example \ref{ex_disease_newton}, we assume disease spread depends on the number of susceptible individuals who are able to become infected.  In reality, we would expect many diseases to require the interaction of both infected on susceptible individuals in order to spread.  One of the simplest ways to model this required interaction is to assume disease spread depends on the product of the proportions of infected and uninfected individuals.  This assumption is often called the \emph{law of mass action.}\\
+
+\example{ex_disease_logistic}{Disease Spread 3}{Suppose a disease spreads through a population at a rate proportional to the product of the number of infected and uninfected individuals. If 5\% of the population is sick initially and 10\% of the population is sick one week later, find a formula for the proportion of the popoulation that is sick at time $t$}
+{The differential equation is
+	\[
+		\frac{dy}{dt} = ky(1-y).
+	\]
+This is exactly the logistic equation with $M = 1.$  We solve this differential equation in example \ref{ex_logistic}, and find
+	\[
+		y = \frac{1}{1 + be^{-kt}}.
+	\]
+The conditions $y(0)=0.05$ and $y(1) = 0.1$ yield $b = 19$ and $k = -\ln\left(\frac{9}{19}\right) \approx 0.7472.$  The final functionis
+	\[
+		y = \frac{1}{1+19e^{\ln\left(\frac{9}{19}\right)t}}.
+	\]
 }
+
+\mtable{.55}{Plots of the functions from example \ref{ex_disease_exponential} (dotted), example \ref{ex_disease_newton} (dashed), and example \ref{ex_disease_logistic} (solid).}{fig:disease}{\begin{tabular}{c} \myincludegraphics{figures/figDE_04_disease} \\ \rule{0pt}{10pt}(a) \\ \\ \myincludegraphics{figures/figDE_04_disease1}  \\  \rule{0pt}{10pt}(b) \end{tabular}}
 
 %\printexercises{exercises/DE_03_exercises}
