@@ -10,7 +10,7 @@ and saw that a \emph{solution} to a differential equation is simply a function t
 \vskip\baselineskip
 
 \definition{def:ODE}{Differential Equation}
-{Given a function $y=f(x)$, a \textbf{differential equation} is an equation relating $x, y,$ and derivatives of $y$.
+{Given a function $y=f(x)$, a \textbf{differential equation}\index{differential equation!definition} is an equation relating $x, y,$ and derivatives of $y$.
 \begin{itemize}
 \item The variable $x$ is called the \textbf{independent variable}.
 \item The variable $y$ is called the \textbf{dependent variable}.
@@ -35,11 +35,11 @@ with $C$ an arbitrary constant of integration, the \emph{general solution} to th
 In order to specify the value of the integration constant $C$, we require additional information.  For example, if we know that $y(1) = 3$, it follows that $C=2$.  This additional information is called an \emph{initial condition.}
 
 \definition{def:IVP}{Initial Value Problem}
-{A differential equation paired with an initial condition (or initial conditions) is called an \textbf{initial value problem.}\\
+{A differential equation paired with an initial condition (or initial conditions) is called an \textbf{initial value problem.}\index{initial value problem}\\
 
-The solution to an initial value problem is called a \textbf{particular solution}. A particular solution does not include arbitrary constants.\\
+The solution to an initial value problem is called a \textbf{particular solution}\index{differential equation!particular solution}. A particular solution does not include arbitrary constants.\\
 
-The family of solutions to a differential that encompasses all possible solutions is called the \textbf{general solution} to the differential equation. A general solution includes one or more arbitrary constants. The particular solution to an initial value problem is one specific member in the family of solutions.
+The family of solutions to a differential that encompasses all possible solutions is called the \textbf{general solution}\index{differential equation!general solution} to the differential equation. A general solution includes one or more arbitrary constants. The particular solution to an initial value problem is one specific member in the family of solutions.
 }\\
 
 \example{ex_simple_de}{A simple first-order differential equation}{
@@ -137,7 +137,7 @@ Consider the first-order differential equation
 The function $f$ could be any function of the two variables $x$ and $y$.  Written in this way, we can think of the function $f$ as providing a formula to find the slope of a solution at a given point in the $xy$-plane.  In other words, suppose a solution to the differential equation passes through the point $(x_0,y_0)$.  At the point $(x_0,y_0)$, the slope of the solution curve will be $f(x_0,y_0).$  Since this calculation of the slope is possible at any point $(x,y)$ where the function $f(x,y)$ is defined, we can produce a plot called a \emph{slope field} that shows the slope of a solution at any point in the $xy$-plane where the solution is defined.  Further, this process can be done purely by working with the differential equation itself.  In other words, we can draw a slope field and use it to determine the qualitative behavior of solutions to a differential equation without having to solve the differential equation.
 
 \definition{def:slope_field}{Slope Field}
-{A \textbf{slope field} for a first-order differential equation $y' = f(x,y)$ is a plot in the $xy$-plane made up of short line segments or arrows. For each point $(x_0,y_0)$ where $f(x,y)$ is defined, the slope of the line segment is given by $f(x_0,y_0)$. Plots of solutions to a differential equation are tangent to the line segments in the slope field.}\\
+{A \textbf{slope field}\index{slope field} for a first-order differential equation $y' = f(x,y)$ is a plot in the $xy$-plane made up of short line segments or arrows. For each point $(x_0,y_0)$ where $f(x,y)$ is defined, the slope of the line segment is given by $f(x_0,y_0)$. Plots of solutions to a differential equation are tangent to the line segments in the slope field.}\\
 
 \example{ex_slope_field}{Finding a slope field}{
 Find a slope field for the differential equation $\displaystyle y' = x+y$.}
@@ -176,7 +176,7 @@ Essentially, we sketch a solution to the initial value problem by starting at th
 
 \example{ex_logistic_slope_field}{Using a slope field to predict long term behavior}{
 Use the slope field for the differential equation $y' = y(1-y)$, shown in figure \ref{fig:DE_01_slopefield2}, to predict long term behavior of solutions to the equation.}
-{This differential equation, called the \emph{logistic differential equation}, often appears in population biology to describe the size of a population.  For that reason, we use $t$ (time) as the independent variable instead of $x$. We also often restrict attention to non-negative $y$-values because negative values correspond to a negative population.\\
+{This differential equation, called the \emph{logistic differential equation},\index{differential equation!logistic} often appears in population biology to describe the size of a population.  For that reason, we use $t$ (time) as the independent variable instead of $x$. We also often restrict attention to non-negative $y$-values because negative values correspond to a negative population.\\
 
 Looking at the slope field in figure \ref{fig:DE_01_slopefield2}, we can predict long term behavior for a given initial condition.
 \begin{itemize}
