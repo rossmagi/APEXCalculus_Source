@@ -39,7 +39,7 @@ In order to specify the value of the integration constant $C$, we require additi
 
 The solution to an initial value problem is called a \textbf{particular solution}. A particular solution does not include arbitrary constants.\\
 
-The solution to a differential that encompasses all possible solutions is called the \textbf{general solution} to the differential equation. A general solution includes one or more arbitrary constants.
+The family of solutions to a differential that encompasses all possible solutions is called the \textbf{general solution} to the differential equation. A general solution includes one or more arbitrary constants. The particular solution to an initial value problem is one specific member in the family of solutions.
 }\\
 
 \example{ex_simple_de}{A simple first-order differential equation}{
@@ -52,12 +52,16 @@ In fact
 \[y = Ce^{2x},\]
 where $C$ is any constant, is the \emph{general solution} to the differential equation because $y' = 2Ce^{2x} = 2y$.
 
-If we are provided with a single initial condition, say $y(0) = 3,$ we can identify $C=3$ so that
-\[y = 3e^{2x}\]
+If we are provided with a single initial condition, say $y(0) = \frac{3}{2},$ we can identify $C=\frac{3}{2}$ so that
+\[y = \frac{3}{2}e^{2x}\]
 is the \emph{particular solution} to the initial value problem 
-\[y' = 2y, \text{ with } y(0) = 3.\]
+\[y' = 2y, \text{ with } y(0) = \frac{3}{2}.\]
+
+Figure \ref{fig:general_particular} shows various members of the general solution to the differential equation $\displaystyle y' = 2y$. Each $C$ value yields a different member of the family, and a different function. We emphasize the particular solution corresponding to the initial condition $y(0)=\frac{3}{2}.$
 \vskip -\baselineskip
 }\\
+
+\mfigure{.55}{A representation of some of the members of general solution to the differential equation $y' = 2y$, including the particular solution to the initial value problem with $y(0)=\displaystyle \frac{3}{2},$ from example \ref{ex_simple_de}}{fig:general_particular}{figures/figDE_01_general_particular}
 
 \example{ex_simple_de2}{A second-order differential equation}{
 Solve the differential equation $y'' + 9y = 0.$}
