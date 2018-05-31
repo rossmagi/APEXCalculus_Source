@@ -6,7 +6,7 @@ In the previous section, we explored a specific techique to solve a specific typ
 Recall than a linear algebraic equation in one variable is one that can be written $ax + b = 0,$ where $a$ and $b$ are real numbers.  Notice that the variable $x$ appears to the first power.  The equations $\sqrt{x}+1=0$ and $\sin(x)-3x = 0$ are both nonlinear. A linear differential equation is one in which the dependent variable and its derivatives appear only to the first power.  We focus on first order equations, which involve first (but not higher order) derivatives of the dependent variable.
 
 \definition{def:Linear}{First Order Linear Differential Equation}
-{A \textbf{first order linear differential equation} is a differential equation that can be written in the form
+{A \textbf{first order linear differential equation}\index{differential equation!first order linear} is a differential equation that can be written in the form
 	\[
 	\frac{dy}{dx} + p(x)y = q(x),
 	\]
@@ -59,7 +59,7 @@ Solving for $y$ yields the explicit solution
 	
 \mnote{.45}{\textbf{Note:} In the examples in the previous section, we performed operations on the arbitrary constant $C$, but still called the result $C$. The justification is that the result after the operation is \emph{still} an arbitrary contant.  Here, we divide $C$ by $x$, so the result depends explicitly on the independent variable $x$.  Since $C/x$ is \emph{not} contant, we can't just call it $C$.}
 
-As motivated by the problem we just solved, the basic idea behind solving first order linear differential equations is to multiply both sides of the differential equation by a function, called an \emph{integrating factor}, that makes the left hand side of the equation look like an expanded product rule.  We then condense the left hand side into the derivative of a product and integrate both sides. An obvious question is how to find the integrating factor.
+As motivated by the problem we just solved, the basic idea behind solving first order linear differential equations is to multiply both sides of the differential equation by a function, called an \emph{integrating factor}\index{differential equation!integrating factor}, that makes the left hand side of the equation look like an expanded product rule.  We then condense the left hand side into the derivative of a product and integrate both sides. An obvious question is how to find the integrating factor.
 
 Consider the first order linear equation
 	\[

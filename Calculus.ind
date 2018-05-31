@@ -6,6 +6,7 @@
 
   \indexspace
 
+  \item bacterial growth, \hyperpage{85}
   \item Bisection Method, \hyperpage{42}
 
   \indexspace
@@ -17,9 +18,18 @@
 
   \item differential equation
     \subitem definition, \hyperpage{57}
+    \subitem first order linear, \hyperpage{77}
     \subitem general solution, \hyperpage{58}
-    \subitem logistic, \hyperpage{63}
+    \subitem integrating factor, \hyperpage{78}
+    \subitem logistic, \hyperpage{63}, \hyperpage{89}
+    \subitem modeling, \hyperpage{85}
     \subitem particular solution, \hyperpage{58}
+    \subitem separable, \hyperpage{71}
+  \item direction field, \hyperindexformat{\see{slope field}}{62}
+
+  \indexspace
+
+  \item Euler's Method, \hyperpage{65}
 
   \indexspace
 
@@ -49,6 +59,11 @@
 
   \indexspace
 
+  \item Newton's Law of Cooling, \hyperpage{86}
+
+  \indexspace
+
+  \item separation of variables, \hyperpage{72}
   \item slope field, \hyperpage{62}
   \item Squeeze Theorem, \hyperpage{22}
 
