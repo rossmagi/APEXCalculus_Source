@@ -20,4 +20,6 @@
 \printanswers {exercises/DE_01_exercises}
 \noindent {\bf Section 2.2} \vskip \baselineskip 
 \printanswers {exercises/DE_02_exercises}
+\noindent {\bf Section 2.3} \vskip \baselineskip 
+\printanswers {exercises/DE_03_exercises}
 \end {multicols}\normalsize 

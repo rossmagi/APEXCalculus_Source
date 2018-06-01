@@ -12,6 +12,6 @@
 \contentsline {section}{\numberline {2.1}Graphical and Numerical Solutions to Differential Equations}{57}{section.2.1}
 \contentsline {section}{\numberline {2.2}Separable Differential Equations}{71}{section.2.2}
 \contentsline {section}{\numberline {2.3}First Order Linear Differential Equations}{77}{section.2.3}
-\contentsline {section}{\numberline {2.4}Modeling with Differential Equations}{85}{section.2.4}
+\contentsline {section}{\numberline {2.4}Modeling with Differential Equations}{86}{section.2.4}
 \contentsline {chapter}{\numberline {A}Solutions To Selected Problems}{A.1}{appendix.A}
 \contentsline {chapter}{Index}{A.9}{section*.53}

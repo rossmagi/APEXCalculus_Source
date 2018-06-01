@@ -17,14 +17,14 @@ where $p$ and $q$ are arbitrary functions of the independent variable $x$.
 Classify each differential equation as first order linear, separable, both, or neither.\\
 \begin{minipage}[h]{.5\linewidth}
 	\begin{enumerate}
-		\item[(a)] $\displaystyle \frac{dy}{dx} = xy$
-		\item[(b)] $\displaystyle \frac{dy}{dx} = e^y + 3x$
+		\item[(a)] $\displaystyle y' = xy$
+		\item[(b)] $\displaystyle y' = e^y + 3x$
 	\end{enumerate}	
 \end{minipage}%
 \begin{minipage}[h]{.5\linewidth}
 	\begin{enumerate}
-		\item[(c)] $\displaystyle \frac{dy}{dx} - (\cos x)y = \cos x$
-		\item[(d)] $\displaystyle y\frac{dy}{dx} -3xy = 4\ln x$
+		\item[(c)] $\displaystyle y' - (\cos x)y = \cos x$
+		\item[(d)] $\displaystyle yy' -3xy = 4\ln x$
 	\end{enumerate}	
 \end{minipage}
 }
@@ -133,7 +133,7 @@ Though this formula can be used to write down the solution to a first order line
 Let's practice the process by solving the two first order linear differential equations from example \ref{ex_identify_linear}.\\
 
 \example{ex_linear1}{Solving a First Order Linear Equation}{
-Find the general solution to $\displaystyle \frac{dy}{dx} = xy.$}
+Find the general solution to $\displaystyle y' = xy.$}
 {We solve by following the steps in key idea \ref{idea:solving_linear}. Unlike the process for solving separable equations, we need not worry about losing constant solutions.  The answer we find \emph{will} be the general solution to the differential equation. We first write the equation in the form
 	\[
 		\frac{dy}{dx} - xy = 0.
@@ -165,7 +165,7 @@ or the explicit solution
 \vskip\baselineskip
 
 \example{ex_linear2}{Solving a First Order Linear Equation}{
-Find the general solution to $\displaystyle \frac{dy}{dx} -(\cos x)y = \cos x$.}
+Find the general solution to $\displaystyle y' -(\cos x)y = \cos x$.}
 {The differential equation is already in the correct form.  The integrating factor is given by
 	\[
 		\mu(x) = e^{-\int\cos x\,dx} = e^{-\sin x}.
@@ -191,7 +191,7 @@ We continue our practice by finding the particular solution to an initial value 
 \vskip\baselineskip
 
 \example{ex_linear_ivp}{Solving a First Order Linear Initial Value Problem}{
-Solve the initial value problem $\displaystyle x\frac{dy}{dx} - y = x^3\ln x$, with $y(1)=0.$}
+Solve the initial value problem $\displaystyle xy' - y = x^3\ln x$, with $y(1)=0.$}
 {We first divide by $x$ to get
 	\[
 		\frac{dy}{dx}-\frac{1}{x}y = x^2\ln x.
@@ -284,8 +284,8 @@ or
 
 \vskip\baselineskip
 
-In the solution above, the exponential term decays as time increases, causing the velocity to approach the constant value $mg/k$ in the limit as $t$ approaches infinity.  This value is called the \emph{terminal velocity}.  If we assume a zero initial velocity (the object is dropped, not thrown from the plane), the velocities from examples \ref{ex_falling_object} and \ref{ex_falling_object1} are given by $v = gt$ and $v = \displaystyle \frac{mg}{k}\left (1 - e^{-\frac{k}{m}t}\right )$, respectively.  These two functions are shown in figure \ref{fig:DE_01_falling_object}, with $g = 9.8, m=1,$ and $k=1.$ Notice that the two curves agree well for short times, but have dramatically different behaviors as $t$ increases.  Part of the art in mathematical modeling is deciding on the level of detail required to answer the question of interest.   If we are only interested in the initial behavior of the falling object, the simple model in example \ref{ex_falling_object} may be sufficient.  If we are interested in the longer term behavior of the object, the simple model is not sufficient, and we should consider a more complicated model.
+In the solution above, the exponential term decays as time increases, causing the velocity to approach the constant value $mg/k$ in the limit as $t$ approaches infinity.  This value is called the \emph{terminal velocity}.  If we assume a zero initial velocity (the object is dropped, not thrown from the plane), the velocities from examples \ref{ex_falling_object} and \ref{ex_falling_object1} are given by $v = gt$ and $v = \displaystyle \frac{mg}{k}\left (1 - e^{-\frac{k}{m}t}\right )$, respectively.  These two functions are shown in figure \ref{fig:DE_03_falling_object}, with $g = 9.8, m=1,$ and $k=1.$ Notice that the two curves agree well for short times, but have dramatically different behaviors as $t$ increases.  Part of the art in mathematical modeling is deciding on the level of detail required to answer the question of interest.   If we are only interested in the initial behavior of the falling object, the simple model in example \ref{ex_falling_object} may be sufficient.  If we are interested in the longer term behavior of the object, the simple model is not sufficient, and we should consider a more complicated model.
 
 \mfigure{.4}{The velocity function from examples \ref{ex_falling_object} (dashed) and \ref{ex_falling_object1} (solid) under the assumption that $v(0)=0$, with $g=9.8, m=1$ and $k=1.$}{fig:DE_03_falling_object}{figures/figDE_03_falling_object}
 
-%\printexercises{exercises/DE_03_exercises}
+\printexercises{exercises/DE_03_exercises}
