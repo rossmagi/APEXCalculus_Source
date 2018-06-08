@@ -1,70 +1,39 @@
 \begin{theindex}
 
-  \item asymptote
-    \subitem horizontal, \hyperpage{49}
-    \subitem vertical, \hyperpage{47}
-
-  \indexspace
-
-  \item bacterial growth, \hyperpage{85}
-  \item Bisection Method, \hyperpage{42}
-
-  \indexspace
-
-  \item continuous function, \hyperpage{37}
-    \subitem properties, \hyperpage{40}
+  \item bacterial growth, \hyperpage{30}
 
   \indexspace
 
   \item differential equation
-    \subitem definition, \hyperpage{57}
-    \subitem first order linear, \hyperpage{77}
-    \subitem general solution, \hyperpage{58}
-    \subitem integrating factor, \hyperpage{78}
-    \subitem logistic, \hyperpage{63}, \hyperpage{89}
-    \subitem modeling, \hyperpage{85}
-    \subitem particular solution, \hyperpage{58}
-    \subitem separable, \hyperpage{71}
-  \item direction field, \hyperindexformat{\see{slope field}}{62}
+    \subitem definition, \hyperpage{1}
+    \subitem first order linear, \hyperpage{21}
+    \subitem general solution, \hyperpage{2}
+    \subitem integrating factor, \hyperpage{22}
+    \subitem logistic, \hyperpage{7}, \hyperpage{34}
+    \subitem modeling, \hyperpage{30}
+    \subitem particular solution, \hyperpage{2}
+    \subitem separable, \hyperpage{15}
+  \item direction field, \hyperindexformat{\see{slope field}}{6}
 
   \indexspace
 
-  \item Euler's Method, \hyperpage{65}
+  \item Euler's Method, \hyperpage{9}
 
   \indexspace
 
-  \item floor function, \hyperpage{38}
+  \item half life, \hyperpage{39}
 
   \indexspace
 
-  \item indeterminate form, \hyperpage{2}, \hyperpage{48}
-  \item initial value problem, \hyperpage{58}
-  \item Intermediate Value Theorem, \hyperpage{42}
+  \item initial value problem, \hyperpage{2}
 
   \indexspace
 
-  \item limit
-    \subitem at infinity, \hyperpage{49}
-    \subitem definition, \hyperpage{10}
-    \subitem difference quotient, \hyperpage{6}
-    \subitem does not exist, \hyperpage{4}, \hyperpage{32}
-    \subitem indeterminate form, \hyperpage{2}, \hyperpage{48}
-    \subitem left handed, \hyperpage{30}
-    \subitem of infinity, \hyperpage{46}
-    \subitem one sided, \hyperpage{30}
-    \subitem properties, \hyperpage{18}
-    \subitem pseudo-definition, \hyperpage{2}
-    \subitem right handed, \hyperpage{30}
-    \subitem Squeeze Theorem, \hyperpage{22}
+  \item Newton's Law of Cooling, \hyperpage{31}
 
   \indexspace
 
-  \item Newton's Law of Cooling, \hyperpage{86}
-
-  \indexspace
-
-  \item separation of variables, \hyperpage{72}
-  \item slope field, \hyperpage{62}
-  \item Squeeze Theorem, \hyperpage{22}
+  \item separation of variables, \hyperpage{16}
+  \item slope field, \hyperpage{6}
 
 \end{theindex}
