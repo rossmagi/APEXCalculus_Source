@@ -56,7 +56,7 @@ To solve, we integrate the left hand side with respect to $y$ and the right hand
 \enlargethispage{\baselineskip}
 
 \example{ex_separable_DE}{Solving a Separable Differential Equation}{
-Find the general solution to the differential equation $y' = x^2y$.}
+Find the general solution to the differential equation $\yp = x^2y$.}
 {Using the informal solution method outlined above, we treat $\displaystyle \frac{dy}{dx}$ as a fraction, and write the separated form of the differential equation as
 \[\frac{dy}{y} = x^2 dx.\]
 Integrating the left hand side of the equation with respect to $y$ and the right hand side of the equation with respect to $x$ yields
@@ -72,11 +72,11 @@ Our solution is either $y = e^C e^{\frac{x^3}{3}}$ or $y = - e^C e^{\frac{x^3}{3
 
 \mnote{.7}{\textbf{Note:} The indefinite integrals $\displaystyle \int \frac{dy}{y}\,dy$ and $\displaystyle \int x^2\, dx$ both produce arbitrary constants.  Since both constants are arbitrary, we combine them into a single constant of integration.}
 
-\mnote{.32}{\textbf{Note:} Missing constant solutions can't always be recovered by cleverly redefining the arbitrary constant.  The differential equation $y' = y^2 - 1$ is an example of this fact.  Both $y=1$ and $y=-1$ are constant solutions to this differential equation.  Separation of variables yields a solution where $y=1$ can be attained by choosing an appropriate $C$ value, but $y=-1$ can't.  The general solution is the set containing the solution produced by separation of variables \emph{and} the missing solution $y=-1.$ We should always be careful to look for missing constant solutions when seeking the general solution to a separable differential equation.}
+\mnote{.32}{\textbf{Note:} Missing constant solutions can't always be recovered by cleverly redefining the arbitrary constant.  The differential equation $\yp = y^2 - 1$ is an example of this fact.  Both $y=1$ and $y=-1$ are constant solutions to this differential equation.  Separation of variables yields a solution where $y=1$ can be attained by choosing an appropriate $C$ value, but $y=-1$ can't.  The general solution is the set containing the solution produced by separation of variables \emph{and} the missing solution $y=-1.$ We should always be careful to look for missing constant solutions when seeking the general solution to a separable differential equation.}
 \newpage
 
 \example{ex_separable_IVP}{Solving a Separable Initial Value Problem}{
-Solve the initial value problem $\displaystyle (y\sqrt{y^2-5}) y' - \sin x \cos x = 0$, with $y(0) = -3$.}
+Solve the initial value problem $\displaystyle (y\sqrt{y^2-5}) \yp - \sin x \cos x = 0$, with $y(0) = -3$.}
 {We first put the differential equation in separated form
 \[y\sqrt{y^2-5}\,dy = \sin x \cos x\, dx.\]
 The indefinite integral $\displaystyle \int y\sqrt{y^2-5}\,dy$ requires the substitution $u = y^2-5$. Using this substitute yields the antiderivative $\displaystyle \frac{1}{3} (y^2-5)^{3/2}.$ The indefinite integral $\displaystyle \int \sin x \cos x\,dx$ requires the substitution $u = \sin x.$ Using this substitution yields the antiderivative $\displaystyle \frac{1}{2} \sin^2 x.$  Thus, we have an implicit form of the solution to the differential equation given by
