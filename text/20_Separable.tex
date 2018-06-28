@@ -66,7 +66,7 @@ This is an implicit form of the solution to the differential equation.  Solving 
 This solution is a bit problematic. First, the absolute value makes the solution difficult to understand.  The second issue comes from our desire to find the \emph{general solution.}  Recall that a general solution includes all possible solutions to the differential equation.  In other words, for any given initial condition, the general solution must include the solution to that specific initial value problem.  We can often satisfy any given initial condition by choosing an appropriate $C$ value.  When solving separable equations, though, it is possible to lose solutions that have the form $y = $ constant.  Notice that $y=0$ solves the differential equation, but it is not possible to choose a finite $C$ to make our solution look like $y=0$.  Our solution cannot solve the initial value problem $\displaystyle \frac{dy}{dx} = x^2y$, with $y(a) = 0$ (where $a$ is any value).  Thus, we haven't actually found a general solution to the problem. We can clean up the solution and recover the missing solution with a bit of clever thought.
 
 Recall the formal definition of the absolute value: $|y| = y$ if $y \geq 0$ and $|y| =  -y$ if $y < 0.$
-Our solution is either $y = e^C e^{\frac{x^3}{3}}$ or $y = - e^C e^{\frac{x^3}{3}}$.  Further, note that $C$ is constant, so $e^C$ is also constant.  If we write our solution as $y = Ce^{\frac{x^3}{3}}$, and allow $C$ to take on both positive and negative values, we incorporate both cases of the absolute value. Finally, if we allow $C$ to be zero, we recover the missing solution discussed above.  The best way to express the general solution to our differential equation is
+Our solution is either $y = e^C e^{\frac{x^3}{3}}$ or $y = - e^C e^{\frac{x^3}{3}}$.  Further, note that $C$ is constant, so $e^C$ is also constant.  If we write our solution as $y = Ce^{\frac{x^3}{3}}$, and allow $C$ to take on either positive or negative values, we incorporate both cases of the absolute value. Finally, if we allow $C$ to be zero, we recover the missing solution discussed above.  The best way to express the general solution to our differential equation is
 \[y = Ce^{\frac{x^3}{3}}.\]
 }
 
@@ -117,7 +117,7 @@ We start by making the observation that both $y=0$ and $y = M$ are constant solu
 	\]
 The antiderivative of the left hand side of the equation can be found by making use of partial fractions.  Using the techniques discussed in section \ref{sec:partial_fraction}, we write
 	\[
-	y\left(1-\frac{y}{M}\right) = \frac{1}{y} + \frac{1}{M-y}.
+	\frac{1}{y\left(1-\frac{y}{M}\right)} = \frac{1}{y} + \frac{1}{M-y}.
 	\]
 Then an implicit form of the solution is given by
 	\[

@@ -110,7 +110,7 @@ The function $\displaystyle y = C e^{-3x} + \sqrt{\sin x}$ is \emph{not} a solut
 
 \example{ex_verify_solutions2}{Verifying a Solution to a Differential Equation}{
 Verify that $x^2+y^2 = Cy$ is a solution to $\displaystyle \yp = \frac{2xy}{x^2-y^2}.$}
-{The solution in this example is called an \emph{implicit solution.}  That means the dependent variable $y$ is a function of $x$, but has not been explicitly solved for.  Verifying the solution still involves differentiation, but we must take the derivatives implicitly.  Differentiating, we have
+{The solution in this example is called an \emph{implicit solution.}\index{differential equation!implicit soution}  That means the dependent variable $y$ is a function of $x$, but has not been explicitly solved for.  Verifying the solution still involves differentiation, but we must take the derivatives implicitly.  Differentiating, we have
 \[2x + 2y\yp = C\yp.\]
 Solving for $\yp,$ we have
 \[\yp = \frac{2x}{C-2y}.\]
@@ -128,7 +128,7 @@ We have verified that $x^2+y^2 = Cy$ is a solution to $\displaystyle \yp = \frac
 \noindent\textbf{\large Graphical Solutions to Differential Equations}
 \vskip\baselineskip
 
-The solutions to the differential equations we have explored so far are called \emph{analytic solutions.} We have found exact forms for the functions that solve the  differential equations.  Many times a differential equation will have a solution, but it is difficult or impossible to find the solution analytically.  This is analogous to algebraic equations.  The algebraic equation $x^2 + 3x - 1 = 0$ has two real solutions that can be found analytically by using the quadratic formula. The equation $\cos x = x$ has one real solution, but we can't find it analytically. As shown in figure \ref{fig:20_01_intersection}, we can find an approximate solution graphically by plotting $\cos x$ and $x$ and observing the $x$-value of the intersection. We can similarly use graphical tools to understand the qualitative behavior of solutions to a first order-differential equation.
+The solutions to the differential equations we have explored so far are called \emph{analytic solutions.} We have found exact forms for the functions that solve the  differential equations.  Many times a differential equation has a solution, but it is difficult or impossible to find the solution analytically.  This is analogous to algebraic equations.  The algebraic equation $x^2 + 3x - 1 = 0$ has two real solutions that can be found analytically by using the quadratic formula. The equation $\cos x = x$ has one real solution, but we can't find it analytically. As shown in figure \ref{fig:20_01_intersection}, we can find an approximate solution graphically by plotting $\cos x$ and $x$ and observing the $x$-value of the intersection. We can similarly use graphical tools to understand the qualitative behavior of solutions to a first order-differential equation.
 
 \mfigure{.8}{Graphically finding an approximate solution to $\cos x = x.$}{fig:20_01_intersection}{figures/fig20_01_intersection}
 
@@ -137,11 +137,11 @@ Consider the first-order differential equation
 The function $f$ could be any function of the two variables $x$ and $y$.  Written in this way, we can think of the function $f$ as providing a formula to find the slope of a solution at a given point in the $xy$-plane.  In other words, suppose a solution to the differential equation passes through the point $(x_0,y_0)$.  At the point $(x_0,y_0)$, the slope of the solution curve will be $f(x_0,y_0).$  Since this calculation of the slope is possible at any point $(x,y)$ where the function $f(x,y)$ is defined, we can produce a plot called a \emph{slope field} (or direction field \index{direction field|see{slope field}}) that shows the slope of a solution at any point in the $xy$-plane where the solution is defined.  Further, this process can be done purely by working with the differential equation itself.  In other words, we can draw a slope field and use it to determine the qualitative behavior of solutions to a differential equation without having to solve the differential equation.
 
 \definition{def:slope_field}{Slope Field}
-{A \textbf{slope field}\index{slope field} for a first-order differential equation $\yp = f(x,y)$ is a plot in the $xy$-plane made up of short line segments or arrows. For each point $(x_0,y_0)$ where $f(x,y)$ is defined, the slope of the line segment is given by $f(x_0,y_0)$. Plots of solutions to a differential equation are tangent to the line segments in the slope field.}\\
+{A \textbf{slope field}\index{slope field} for a first-order differential equation $\yp = f(x,y)$ is a plot in the $xy$-plane made up of short line segments or arrows. At each point $(x_0,y_0)$ where $f(x,y)$ is defined, the slope of the line segment is given by $f(x_0,y_0)$. Plots of solutions to a differential equation are tangent to the line segments in the slope field.}\\
 
 \example{ex_slope_field}{Finding a slope field}{
 Find a slope field for the differential equation $\displaystyle \yp = x+y$.}
-{Because the function $f(x,y) = x+y$ is defined for all points $(x,y)$, every point in the $xy$-plane has an associated line segment. It is not practical to draw an entire slope field by hand, but many tools exist for drawing slope fields on a computer.  Here, we explicitly calculate and plot a few of the line segments in the slope field.
+{Because the function $f(x,y) = x+y$ is defined for all points $(x,y)$, every point in the $xy$-plane has an associated line segment. It is not practical to draw an entire slope field by hand, but many tools exist for drawing slope fields on a computer.  Here, we explicitly calculate  a few of the line segments in the slope field.
 
 \begin{itemize}
 \item The slope of the line segment at $(0,0)$ is $f(0,0) = 0 + 0 = 0.$
@@ -274,7 +274,7 @@ Using Euler's method, we find the approximate $y(2) \approx -0.5584.$
 These five points, along with the points from example \ref{ex_euler1} and the analytic solution, are plotted in figure \ref{fig:20_01_euler2}.
 }\\
 
-\mfigure{.45}{Euler's Method approximations to $\yp = x + y$ with $y(1) = -1$ from examples \ref{ex_euler1} and \ref{ex_euler2}, along with the analytical solution.}{fig:20_01_euler2}{figures/fig20_01_euler2}
+\mfigure{.8}{Euler's Method approximations to $\yp = x + y$ with $y(1) = -1$ from examples \ref{ex_euler1} and \ref{ex_euler2}, along with the analytical solution.}{fig:20_01_euler2}{figures/fig20_01_euler2}
 
 Using the results from examples \ref{ex_euler1} and \ref{ex_euler2}, we can make a few observations about Euler's method.  First, the Euler approximation gets successively worse as we get farther from the initial condition.  This is because Euler's method involves two sources of error.  The first comes from the fact that we're using a positive $h$-value in the derivative approximation instead of using a limit as $h$ approaches zero.  Essentially, we're using a linear approximation to the solution $y$ (similar to the process described in section \ref{sec:differentials} on differentials.) This error is often called the \emph{local truncation error.}  The second source of error comes from the fact that every step in Euler's method uses the result of the previous step.  That means we're using an approximate $y$-value to approximate the next $y$-value.  Doing this repeatedly causes the errors to build on each other.  This second type of error is often called the \emph{propagated} or \emph{accumulated error.} A second observation is that the Euler approximation is more accurate for smaller $h$-values.  This accuracy comes at a cost, though.  Example \ref{ex_euler2} is more accurate than example \ref{ex_euler1}, but takes twice as many computations.  In general, numerical algorithms (even when performed by a computer program) require striking a balance between a desired level of accuracy and the amount of computational effort we are willing to undertake.
 
