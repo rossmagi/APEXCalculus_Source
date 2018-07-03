@@ -1,7 +1,7 @@
 
 \section{First Order Linear Differential Equations}\label{sec:Linear}
 
-In the previous section, we explored a specific techique to solve a specific type of differential equation; a separable differential equation.  In this section, we develop and practice a technique to solve a type of differential equation called a \emph{first order linear} differential equation.
+In the previous section, we explored a specific techique to solve a specific type of differential equation called a separable differential equation.  In this section, we develop and practice a technique to solve a type of differential equation called a \emph{first order linear} differential equation.
 
 Recall than a linear algebraic equation in one variable is one that can be written $ax + b = 0,$ where $a$ and $b$ are real numbers.  Notice that the variable $x$ appears to the first power.  The equations $\sqrt{x}+1=0$ and $\sin(x)-3x = 0$ are both nonlinear. A linear differential equation is one in which the dependent variable and its derivatives appear only to the first power.  We focus on first order equations, which involve first (but not higher order) derivatives of the dependent variable.
 
@@ -15,6 +15,7 @@ where $p$ and $q$ are arbitrary functions of the independent variable $x$.
 
 \example{ex_identify_linear}{Classifying Differential Equations}{
 Classify each differential equation as first order linear, separable, both, or neither.\\
+\vskip .1\baselineskip
 \begin{minipage}[h]{.5\linewidth}
 	\begin{enumerate}
 		\item[(a)] $\displaystyle \yp = xy$
@@ -40,7 +41,7 @@ Notice that linearity depends on the dependent variable $y$, not the independent
 \noindent\textbf{\large Solving First Order Linear Equations}
 \vskip\baselineskip
 
-We motivate the solution technique by way of an observation and an example.  We first observe that the expression $\displaystyle \frac{d}{dx}\big(xy\big)$ can be expanded via the product rule and implicit differentiation to the expression $\displaystyle x \frac{dy}{dx} + y.$ Now we look at an example.  Consider the first order linear differential equation
+We motivate the solution technique by way of an observation and an example.  We first observe that the expression $\displaystyle \frac{d}{dx}\big(xy\big)$ can be expanded via the product rule and implicit differentiation to yield the expression $\displaystyle x \frac{dy}{dx} + y.$ Now we look at an example.  Consider the first order linear differential equation
 	\[
 		\frac{dy}{dx} + \frac{1}{x}y = \frac{\sin x \cos x}{x}.
 	\]
@@ -48,7 +49,7 @@ If we multiply both sides of the differential equation by $x$ and use our observ
 	\[
 		\frac{d}{dx}\big(xy\big) = \sin x \cos x .
 	\]
-We can now integrate both sides of the differential equation with respect to $x$. On th left, the antiderivative of the derivative is simply the function $xy.$  Using the substitution $u = \sin x$ on the right results in the implicit solution
+We can now integrate both sides of the differential equation with respect to $x$. On the left, the antiderivative of the derivative is simply the function $xy.$  Using the substitution $u = \sin x$ on the right results in the implicit solution
 	\[
 		xy = \frac{1}{2}\sin^2 x + C.
 	\]
@@ -81,7 +82,7 @@ Equating these two gives
 	\[
 		\frac{d\mu}{dx}y + \mu(x)\frac{dy}{dx} = \mu(x) \frac{dy}{dx} + \mu(x)p(x)y,
 	\]
-or
+which is equivalent to
 	\[
 		\frac{d\mu}{dx} = \mu(x)p(x).	
 	\]
@@ -286,6 +287,6 @@ or
 
 In the solution above, the exponential term decays as time increases, causing the velocity to approach the constant value $mg/k$ in the limit as $t$ approaches infinity.  This value is called the \emph{terminal velocity}.  If we assume a zero initial velocity (the object is dropped, not thrown from the plane), the velocities from examples \ref{ex_falling_object} and \ref{ex_falling_object1} are given by $v = gt$ and $v = \displaystyle \frac{mg}{k}\left (1 - e^{-\frac{k}{m}t}\right )$, respectively.  These two functions are shown in figure \ref{fig:20_03_falling_object}, with $g = 9.8, m=1,$ and $k=1.$ Notice that the two curves agree well for short times, but have dramatically different behaviors as $t$ increases.  Part of the art in mathematical modeling is deciding on the level of detail required to answer the question of interest.   If we are only interested in the initial behavior of the falling object, the simple model in example \ref{ex_falling_object} may be sufficient.  If we are interested in the longer term behavior of the object, the simple model is not sufficient, and we should consider a more complicated model.
 
-\mfigure{.4}{The velocity function from examples \ref{ex_falling_object} (dashed) and \ref{ex_falling_object1} (solid) under the assumption that $v(0)=0$, with $g=9.8, m=1$ and $k=1.$}{fig:20_03_falling_object}{figures/fig20_03_falling_object}
+\mfigure{.4}{The velocity functions from examples \ref{ex_falling_object} (dashed) and \ref{ex_falling_object1} (solid) under the assumption that $v(0)=0$, with $g=9.8, m=1,$ and $k=1.$}{fig:20_03_falling_object}{figures/fig20_03_falling_object}
 
 \printexercises{exercises/20_03_exercises}
