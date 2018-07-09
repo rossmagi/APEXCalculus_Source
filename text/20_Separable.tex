@@ -1,7 +1,7 @@
 
 \section{Separable Differential Equations}\label{sec:Separable}
 
-Similar to algebraic equations, there are specific techniques that can be used to solve specific types of differential equations.  In algebra, we can use the quadratic formula to solve a quadratic equation, but not a linear or cubic equation.  In the same way, techniques that can be used for a specific type of differential equation are ineffective for a differential equation of a different type.  In this section, we describe and practice a technique to solve a class of differential equations called \emph{separable equations.}
+There are specific techniques that can be used to solve specific types of differential equations.  This is similar to solving algebraic equations. In algebra, we can use the quadratic formula to solve a quadratic equation, but not a linear or cubic equation.  In the same way, techniques that can be used for a specific type of differential equation are often ineffective for a differential equation of a different type.  In this section, we describe and practice a technique to solve a class of differential equations called \emph{separable equations.}
 
 \definition{def:Separable}{Separable Differential Equation}
 {A \textbf{separable differential equation}\index{differential equation!separable} is one that can be written in the form
@@ -66,8 +66,8 @@ This is an implicit form of the solution to the differential equation.  Solving 
 This solution is a bit problematic. First, the absolute value makes the solution difficult to understand.  The second issue comes from our desire to find the \emph{general solution.}  Recall that a general solution includes all possible solutions to the differential equation.  In other words, for any given initial condition, the general solution must include the solution to that specific initial value problem.  We can often satisfy any given initial condition by choosing an appropriate $C$ value.  When solving separable equations, though, it is possible to lose solutions that have the form $y = $ constant.  Notice that $y=0$ solves the differential equation, but it is not possible to choose a finite $C$ to make our solution look like $y=0$.  Our solution cannot solve the initial value problem $\displaystyle \frac{dy}{dx} = x^2y$, with $y(a) = 0$ (where $a$ is any value).  Thus, we haven't actually found a general solution to the problem. We can clean up the solution and recover the missing solution with a bit of clever thought.
 
 Recall the formal definition of the absolute value: $|y| = y$ if $y \geq 0$ and $|y| =  -y$ if $y < 0.$
-Our solution is either $y = e^C e^{\frac{x^3}{3}}$ or $y = - e^C e^{\frac{x^3}{3}}$.  Further, note that $C$ is constant, so $e^C$ is also constant.  If we write our solution as $y = Ce^{\frac{x^3}{3}}$, and allow $C$ to take on either positive or negative values, we incorporate both cases of the absolute value. Finally, if we allow $C$ to be zero, we recover the missing solution discussed above.  The best way to express the general solution to our differential equation is
-\[y = Ce^{\frac{x^3}{3}}.\]
+Our solution is either $y = e^C e^{\frac{x^3}{3}}$ or $y = - e^C e^{\frac{x^3}{3}}$.  Further, note that $C$ is constant, so $e^C$ is also constant.  If we write our solution as $y = Ae^{\frac{x^3}{3}}$, and allow the constant $A$ to take on either positive or negative values, we incorporate both cases of the absolute value. Finally, if we allow $A$ to be zero, we recover the missing solution discussed above.  The best way to express the general solution to our differential equation is
+\[y = Ae^{\frac{x^3}{3}}.\]
 }
 
 \mnote{.7}{\textbf{Note:} The indefinite integrals $\displaystyle \int \frac{dy}{y}\,dy$ and $\displaystyle \int x^2\, dx$ both produce arbitrary constants.  Since both constants are arbitrary, we combine them into a single constant of integration.}
@@ -83,7 +83,7 @@ The indefinite integral $\displaystyle \int y\sqrt{y^2-5}\,dy$ requires the subs
 \[ \frac{1}{3} (y^2-5)^{3/2} = \frac{1}{2} \sin^2 x + C.\]
 The initial condition says that $y$ should be $-3$ when $x$ is $0$, or
 \[ \frac{1}{3} ((-3)^2 - 5)^{3/2} = \frac{1}{2} \sin^2 0 + C.\]
-This is $C = 8/3,$ yielding the particular solution to the initial value problem
+Evaluating the line above, we find $C = 8/3,$ yielding the particular solution to the initial value problem
 	\[
 	\frac{1}{3} (y^2-5)^{3/2} = \frac{1}{2} \sin^2 x + \frac{8}{3}.
 	\]
@@ -109,7 +109,7 @@ Since we cannot solve for $y,$ we cannot find an explicit form of the solution.
 \newpage
 \example{ex_logistic}{Solving the Logistic Differential Equation}{
 Solve the logistic differential equation $\displaystyle \frac{dy}{dt} = ky\left( 1 - \frac{y}{M}\right)$}
-{We looked at a slope field for this equation in section \ref{sec:Graphical_Numerical} in the specific case of $k = M = 1.$ Here, we use separation of variables to find an analytic solution to the more general equation. Notice that the independent variable $t$ does not explicitly appear in the differential equation.  We mentioned that an equation of this type is called \emph{autonomous}.  All autonomous differential equation are separable.
+{We looked at a slope field for this equation in section \ref{sec:Graphical_Numerical} in the specific case of $k = M = 1.$ Here, we use separation of variables to find an analytic solution to the more general equation. Notice that the independent variable $t$ does not explicitly appear in the differential equation.  We mentioned that an equation of this type is called \emph{autonomous}.  All autonomous first order differential equations are separable.
 	
 We start by making the observation that both $y=0$ and $y = M$ are constant solutions to the differential equation.  We must check that these solutions are not lost during the separation of variables process. The separated form of the equation is
 	\[
@@ -129,9 +129,9 @@ Combining the logarithms,
 	\]
 Similarly to example \ref{ex_separable_DE}, we can write
 	\[
-	\frac{y}{M-y} = Ce^{kt}.
+	\frac{y}{M-y} = Ae^{kt}.
 	\]
-Letting $C$ take on positive values or negative values incorporates both cases of the absolute value. This is another implicit form of the solution. Solving for $y$ gives the explicit form
+Letting $A$ take on positive values or negative values incorporates both cases of the absolute value. This is another implicit form of the solution. Solving for $y$ gives the explicit form
 	\[
 	y = \frac{M}{1 + be^{-kt}},
 	\]
@@ -139,7 +139,7 @@ where $b$ is an arbitrary constant.  Notice that $b=0$ recovers the constant sol
 \vskip .2\baselineskip
 }
 
-\mnote{.35}{\textbf{Note:} Solving for $y$ initially yields the explicit solution $\displaystyle y = \frac{CMe^{kt}}{1+Ce^{kt}}$. Dividing numerator and denominator by $Ce^{kt}$ and defining $b = 1/C$ yields the commonly presented form of the solution given in example \ref{ex_logistic}.}
+\mnote{.35}{\textbf{Note:} Solving for $y$ initially yields the explicit solution $\displaystyle y = \frac{AMe^{kt}}{1+Ae^{kt}}$. Dividing numerator and denominator by $Ae^{kt}$ and defining $b = 1/A$ yields the commonly presented form of the solution given in example \ref{ex_logistic}.}
 
 
 

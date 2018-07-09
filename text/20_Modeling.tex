@@ -7,7 +7,7 @@
 \noindent\textbf{\large Models Involving Proportional Change}
 \vskip\baselineskip
 
-Some of the simplest differential equation models involve one quantity that changes at a rate proportional to another quantity.  In the introduction to this chapter, we consider a population that grows at a rate proportional to the current population.  The words in this assumption can be directly translated into a differential equation as shown below.
+Some of the simplest differential equation models involve one quantity that changes at a rate proportional to another quantity.  In the introduction to this chapter, we considered a population that grows at a rate proportional to the current population.  The words in this assumption can be directly translated into a differential equation as shown below.
 
 \begin{center}
 	\myincludegraphics{figures/fig20_04_translation}
@@ -122,7 +122,7 @@ The conditions $y(0)=0.05$ and $y(1) = 0.1$ yield $C = 0.95$ and $k = -\ln\left(
 	\[
 		y = 1-.95e^{\ln\left(\frac{18}{19}\right)t}.
 	\]
-Notice that this function approches $y=1$ in the limit as $t \to \infty,$ and does not suffer from the non-physical behavior described in example \ref{ex_disease_exponential}.
+Notice that this function approaches $y=1$ in the limit as $t \to \infty,$ and does not suffer from the non-physical behavior described in example \ref{ex_disease_exponential}.
 }\\
 
 In example \ref{ex_disease_exponential}, we assumed disease spread depends on the number of infected individuals.  In example \ref{ex_disease_newton}, we assumed disease spread depends on the number of susceptible individuals who are able to become infected.  In reality, we would expect many diseases to require the interaction of both infected and susceptible individuals in order to spread.  One of the simplest ways to model this required interaction is to assume disease spread depends on the product of the proportions of infected and uninfected individuals.  This assumption (regularly seen in the context of chemical reactions) is often called the \emph{law of mass action.}\\
@@ -152,7 +152,7 @@ Based on the three different assumptions about the rate of disease spread explor
 \noindent\textbf{\large Rate-in Rate-out Problems}
 \vskip\baselineskip
 
-One of the classic ways to build a mathematical model involves tracking the way the amount of something can change.  Consider a box with a specific type of stuff inside.  The amount of stuff of the specific type in the box can only change in three ways; we can add more stuff to the box, we can remove some of the stuff from the box, or some of the stuff can change into stuff of a different type.  In the examples that follow, we assume stuff doesn't change type, so we only need to keep track of stuff coming into the box and stuff leaving the box.  To derive a differential equation, we track rates:
+One of the classic ways to build a mathematical model involves tracking the way the amount of something can change. We sometimes say these models are based on \emph{conservation laws}. Consider a box with some amount of a specific type of material inside. (Some type of chemical, for example.)  The amount of material of the specific type in the box can only change in four ways; we can add more to the box, we can remove some  from the box, some of the material can change into material of a different type, or some other type of material can turn into the type we're tracking.  In the examples that follow, we assume material doesn't change type, so we only need to keep track of material coming into the box and material leaving the box.  To derive a differential equation, we track rates:
 	\[
 		\text{rate of change of some quantity} = \text{rate in} - \text{rate out}.
 	\]
@@ -164,22 +164,22 @@ The examples to follow involve tracking the amount of a chemical in solution.  W
 
 \mnote{.5}{\textbf{Note:} The assumption about instantaneous mixing, though not physically accurate, leads to a differential equation we have hope of solving.  In reality, the amount of chemical at a specific location in the container depends both on the location and how long we have been waiting.  This dependence on both space and time leads to a type of differential equation called a \emph{partial differential equation.} Differential equations of this type are more interesting, but significantly harder to study.  Instantaneous mixing removes any spatial dependence from the problem, and leaves us with an \emph{ordinary differential equation}.}
 
-\example{ex_equal_flow}{Equal Flow Rates}{Suppose a 10 liter bucket has 5 liters of salt solution in it.  The initial concentration of the salt solution is 1 gram per liter.  A salt solution with concentration 3 g/L flows into the bucket at a rate of 2 L/min.  Suppose the salt solution mixes instantaneously with the solution already in the bucket and that the mixed solution from the bucket flows out at a rate of 2 L/min.  Find a function that gives the amount of salt in the bucket at time $t$.}
-{We use the rate in - rate out setup described above.  The quantity here is the amount (in grams) of salt in the bucket at time $t$.  Let $y$ denote the amount of salt.  In words, the differential equation is given by
+\example{ex_equal_flow}{Equal Flow Rates}{Suppose a 10 liter tank has 5 liters of salt solution in it.  The initial concentration of the salt solution is 1 gram per liter.  A salt solution with concentration 3 g/L flows into the tank at a rate of 2 L/min.  Suppose the salt solution mixes instantaneously with the solution already in the tank and that the mixed solution from the tank flows out at a rate of 2 L/min.  Find a function that gives the amount of salt in the tank at time $t$.}
+{We use the rate in - rate out setup described above.  The quantity here is the amount (in grams) of salt in the tank at time $t$.  Let $y$ denote the amount of salt.  In words, the differential equation is given by
 	\[
 		\frac{dy}{dt} = \text{rate in} - \text{rate out}.
 	\]
 Thinking in terms of units can help fill in the details of the differential equation.  Since $y$ has units of grams, the left hand side of the equation has units g/min.  Both terms on the right hand side must have these same units.  Notice that the product of a concentration (with units g/L) and a flow rate (with units L/min) results in a quantity with units g/min.  Both terms on the right hand side of the equation will include a concentration multiplied by a flow rate.
 
-For the rate in, we multiply the inflow concentration by the rate that fluid is flowing into the bucket.  This is $(3)(2) = 6$ g/min.
+For the rate in, we multiply the inflow concentration by the rate that fluid is flowing into the bucket.  This is $\displaystyle \left(3 \frac{\text{g}}{\text{L}}\right)\left(2 \frac{\text{L}}{\text{min}}\right) = 6$ g/min.
 
-The rate out is more complicated.  The flow rate is still 2 L/min, meaning that the overall volume of the fluid in the bucket is the constant 5 L.  The salt concentration in the bucket is not constant though, meaning that the outflow concentration is not constant.  In particular, the outflow concentration is \emph{not} the constant 1 g/L.  This is simply the initial concentration.  To find the concentration at any time, we need the amount of salt in the bucket at that time and the volume of liquid in the bucket at that time.  The volume of liquid is the constant 5 L, and the amount of salt is given by the dependent variable $y$.  Thus, the outflow concentration is $y/5$, yielding a rate out given by $\left(\frac{y}{5}\right)(2) = \frac{2y}{5}.$
+The rate out is more complicated.  The flow rate is still 2 L/min, meaning that the overall volume of the fluid in the bucket is the constant 5 L.  The salt concentration in the bucket is not constant though, meaning that the outflow concentration is not constant.  In particular, the outflow concentration is \emph{not} the constant 1 g/L.  This is simply the initial concentration.  To find the concentration at any time, we need the amount of salt in the bucket at that time and the volume of liquid in the bucket at that time.  The volume of liquid is the constant 5 L, and the amount of salt is given by the dependent variable $y$.  Thus, the outflow concentration is $\displaystyle \frac{y}{5}$ g/L, yielding a rate out given by $\displaystyle \left(\frac{y}{5}\frac{\text{g}}{\text{L}}\right)\left(2 \frac{\text{L}}{\text{min}}\right) = \frac{2y}{5}$ g/min
 
 The differential equation we wish to solve is given by
 	\[
 		\frac{dy}{dt} = 6 - \frac{2y}{5}.
 	\]
-To furnish an initial condition, we must convert the initial salt concentration into an initial amount of salt.  This is $(1)(5) = 5$ g, so $y(0) = 5$ is our initial condition.
+To furnish an initial condition, we must convert the initial salt concentration into an initial amount of salt.  This is $\left(1\displaystyle \frac{\text{g}}{\text{L}}\right)(5 \text{ L}) = 5$ g, so $y(0) = 5$ is our initial condition.
 
 Our differential equation is both separable and linear.  We solve using separation of variables.  The separated form of the differential equation is
 	\[
@@ -202,7 +202,7 @@ Is the particular solution to our initial value problem.
 This function is plotted in figure \ref{fig:equal_flow}.  Notice that in the limit as $t\to\infty$, $y$ approaches $15$.  This corresponds to a bucket concentration of $15/5 = 3$ g/L.  It should not be surprising that salt concentration inside the tank will move to match the inflow salt concentration.
 }
 
-\mfigure{.4}{Salt concentration at time $t$, from example \ref{ex_equal_flow}.}{fig:equal_flow}{figures/fig20_04_equal_flow}
+\mfigure{.8}{Salt concentration at time $t$, from example \ref{ex_equal_flow}.}{fig:equal_flow}{figures/fig20_04_equal_flow}
 
 \vskip\baselineskip
 
@@ -211,9 +211,9 @@ This function is plotted in figure \ref{fig:equal_flow}.  Notice that in the lim
 	\[
 		\text{volume} = \text{initial volume} + \text{(inflow rate - outflow rate)}t.
 	\]
-In this example, the volume at time $t$ is $5 + t.$  Because the total volume of the bucket is only 10 L, it follows that our solution will only be valid for $0 \leq t \leq 5$.  At that point it is no longer possible to have liquid flow into a the bucket at a rate of 2 L/min and out of the bucket at a rate of 1 L/min.
+In this example, the volume at time $t$ is $5 + t$ liters.  Because the total volume of the bucket is only 10 L, it follows that our solution will only be valid for $0 \leq t \leq 5$.  At that point it is no longer possible to have liquid flow into a the bucket at a rate of 2 L/min and out of the bucket at a rate of 1 L/min.
 
-To update the differential equation, we must modify the rate out.  Since the volume is $5 + t,$ the concentration at time $t$ is given by $\frac{y}{5+t}.$  Thus for rate out, we must use $\left( \frac{y}{5+t}\right)(1).$  The initial value problem is
+To update the differential equation, we must modify the rate out.  Since the volume is $5 + t,$ the concentration at time $t$ is given by $\frac{y}{5+t}$ g/L.  Thus for rate out, we must use $\left( \frac{y}{5+t}\right)(1)$ g/min.  The initial value problem is
 	\[
 		\frac{dy}{dt} = 6 - \frac{y}{5+t}, \text{ with } y(0)=5.
 	\]
@@ -223,7 +223,7 @@ Unlike example \ref{ex_equal_flow}, where we had equal flow rates, this differen
 	\]
 we identify the integrating factor
 	\[
-		\mu(t) = e^{\int\frac{1}{5+t}\,dt} = e^{\ln(5+t)} = 5+t.
+		\mu(t) = e^{\int \hskip -2pt \frac{1}{5+t}\,dt} = e^{\ln(5+t)} = 5+t.
 	\]
 Then
 	\[

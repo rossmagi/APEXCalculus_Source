@@ -41,26 +41,50 @@ Notice that linearity depends on the dependent variable $y$, not the independent
 \noindent\textbf{\large Solving First Order Linear Equations}
 \vskip\baselineskip
 
-We motivate the solution technique by way of an observation and an example.  We first observe that the expression $\displaystyle \frac{d}{dx}\big(xy\big)$ can be expanded via the product rule and implicit differentiation to yield the expression $\displaystyle x \frac{dy}{dx} + y.$ Now we look at an example.  Consider the first order linear differential equation
-	\[
-		\frac{dy}{dx} + \frac{1}{x}y = \frac{\sin x \cos x}{x}.
-	\]
-If we multiply both sides of the differential equation by $x$ and use our observation, we see that the differential equation can be written
+Before working out a general technique for solving first order linear differential equations, we look at a specific example. Consider the differential equation
 	\[
 		\frac{d}{dx}\big(xy\big) = \sin x \cos x .
 	\]
-We can now integrate both sides of the differential equation with respect to $x$. On the left, the antiderivative of the derivative is simply the function $xy.$  Using the substitution $u = \sin x$ on the right results in the implicit solution
-	\[
-		xy = \frac{1}{2}\sin^2 x + C.
-	\]
+This is an easy differential equation to solve. On the left, the antiderivative of the derivative is simply the function $xy.$  Using the substitution $u = \sin x$ on the right results in the implicit solution
+\[
+xy = \frac{1}{2}\sin^2 x + C.
+\]
 Solving for $y$ yields the explicit solution
-	\[
-		y = \frac{\sin^2 x}{2x} + \frac{C}{x}.
-	\]
-	
-\mnote{.45}{\textbf{Note:} In the examples in the previous section, we performed operations on the arbitrary constant $C$, but still called the result $C$. The justification is that the result after the operation is \emph{still} an arbitrary contant.  Here, we divide $C$ by $x$, so the result depends explicitly on the independent variable $x$.  Since $C/x$ is \emph{not} contant, we can't just call it $C$.}
+\[
+y = \frac{\sin^2 x}{2x} + \frac{C}{x}.
+\]
 
-As motivated by the problem we just solved, the basic idea behind solving first order linear differential equations is to multiply both sides of the differential equation by a function, called an \emph{integrating factor}\index{differential equation!integrating factor}, that makes the left hand side of the equation look like an expanded product rule.  We then condense the left hand side into the derivative of a product and integrate both sides. An obvious question is how to find the integrating factor.
+Though not obvious, the differential equation above is actually a linear differential equation.  Using the product rule and implicit differentiation, we can write $\displaystyle \frac{d}{dx}\big(xy\big) = x\frac{dy}{dx} + y.$  Our original differential equation can be written
+	\[
+		x\frac{dy}{dx} + y = \sin x \cos x.
+	\]
+If we divide by $x$, we have
+	\[
+		\frac{dy}{dx} + \frac{1}{x} y = \frac{\sin x \cos x}{x},
+	\]
+which matches the form in definition \ref{def:Linear}.  Reversing our steps would lead us back to the original form our our differential equation.  
+
+
+%We motivate the solution technique by way of an observation and an example.  We first observe that the expression $\displaystyle \frac{d}{dx}\big(xy\big)$ can be expanded via the product rule and implicit differentiation to yield the expression $\displaystyle x \frac{dy}{dx} + y.$ Now we look at an example.  Consider the first order linear differential equation
+%	\[
+%		\frac{dy}{dx} + \frac{1}{x}y = \frac{\sin x \cos x}{x}.
+%	\]
+%If we multiply both sides of the differential equation by $x$ and use our observation, we see that the differential equation can be written
+%	\[
+%		\frac{d}{dx}\big(xy\big) = \sin x \cos x .
+%	\]
+%We can now integrate both sides of the differential equation with respect to $x$. On the left, the antiderivative of the derivative is simply the function $xy.$  Using the substitution $u = \sin x$ on the right results in the implicit solution
+%	\[
+%		xy = \frac{1}{2}\sin^2 x + C.
+%	\]
+%Solving for $y$ yields the explicit solution
+%	\[
+%		y = \frac{\sin^2 x}{2x} + \frac{C}{x}.
+%	\]
+	
+\mnote{.55}{\textbf{Note:} In the examples in the previous section, we performed operations on the arbitrary constant $C$, but still called the result $C$. The justification is that the result after the operation is \emph{still} an arbitrary contant.  Here, we divide $C$ by $x$, so the result depends explicitly on the independent variable $x$.  Since $C/x$ is \emph{not} contant, we can't just call it $C$.}
+
+As motivated by the problem we just explored, the basic idea behind solving first order linear differential equations is to multiply both sides of the differential equation by a function, called an \emph{integrating factor}\index{differential equation!integrating factor}, that makes the left hand side of the equation look like an expanded product rule.  We then condense the left hand side into the derivative of a product and integrate both sides. An obvious question is how to find the integrating factor.
 
 Consider the first order linear equation
 	\[
@@ -78,7 +102,7 @@ Using the product rule and implicit differentiation,
 	\[
 		\frac{d}{dx} \big ( \mu(x) y \big ) = \frac{d\mu}{dx}y + \mu(x)\frac{dy}{dx}.
 	\]
-Equating these two gives
+Equating $\frac{d}{dx} \big ( \mu(x) y \big )$ and $\mu(x) \left ( \frac{dy}{dx} + p(x)y \right )$ gives
 	\[
 		\frac{d\mu}{dx}y + \mu(x)\frac{dy}{dx} = \mu(x) \frac{dy}{dx} + \mu(x)p(x)y,
 	\]
@@ -96,7 +120,7 @@ Integrating,
 	\]
 or
 	\[
-		\mu(x) = e^{\int p(x)\,dx}.
+		\mu(x) = e^{\int \hskip -1.5pt p(x)\,dx}.
 	\]
 If $\mu(x)$ is chosen this way, after multiplying by $\mu(x)$, we can always write the differential equation in the form
 	\[
@@ -107,7 +131,9 @@ Integrating and solving for $y$, the explicit solution is
 		y = \frac{1}{\mu(x)}\int \big( \mu(x)q(x) \big)\,dx.
 	\]
 	
-\mnote{.45}{\textbf{Note:} Following the steps outlined in the previous section, we should technically end up with $\mu(x) = Ce^{\int p(x)\,dx},$ where $C$ is an arbitrary constant.  Because we multiply both sides of the differential equation by $\mu(x)$, the arbitrary constant cancels, and we omit it when finding the integrating factor. }
+\mnote{.8}{\textbf{Note:} Though we use $u(x)$ for our integrating factor, the symbol is unimportant.  The notation $\mu(x)$ is a common choice, but other texts my use $\alpha(x), I(x)$, or some other symbol to designate the integrating factor.}
+	
+\mnote{.35}{\textbf{Note:} Following the steps outlined in the previous section, we should technically end up with $\mu(x) = Ce^{\int p(x)\,dx},$ where $C$ is an arbitrary constant.  Because we multiply both sides of the differential equation by $\mu(x)$, the arbitrary constant cancels, and we omit it when finding the integrating factor. }
 
 Though this formula can be used to write down the solution to a first order linear equation, we shy away from simply memorizing a formula. The process is lost, and it's easy to forget the formula. Rather, we always always follow the steps outlined in key idea \ref{idea:solving_linear} when solving equations of this type.
 
@@ -120,7 +146,7 @@ Though this formula can be used to write down the solution to a first order line
 		\]
 	\item Compute the integrating factor
 		\[
-			\mu(x) = e^{\int p(x)\,dx}.
+			\mu(x) = e^{\int \hskip -1.5pt p(x)\,dx}.
 		\]
 	\item Multiply both sides of the differential equation by $\mu(x)$, and condense the left hand side to get
 		\[
@@ -141,7 +167,7 @@ Find the general solution to $\displaystyle \yp = xy.$}
 	\]
 By identifying $p(x) = -x,$ we can compute the integrating factor
 	\[
-		\mu(x) = e^{\int -x\,dx} = e^{-\frac{1}{2}x^2}.
+		\mu(x) = e^{\int \hskip -1.5pt -x\,dx} = e^{-\frac{1}{2}x^2}.
 	\]
 Multiplying both side of the differential equation by $\mu(x),$ we have
 	\[
@@ -161,7 +187,7 @@ or the explicit solution
 	\]
 }
 
-\mnote{.825}{\textbf{Note:} The step where the left hand side of the differential equation condenses to the derivative of a product can feel a bit magical.  The reality is that we choose $\mu(x)$ so that we can get exactly this condensing behavior.  It's not magic, it's math!  If you're still skeptical, try using the product rule and implicit differentiation to evaluate $\displaystyle \frac{d}{dx}\left (e^{-\frac{1}{2}x^2}y\right)$, and verify that it becomes $e^{-\frac{1}{2}x^2}\left(\displaystyle \frac{dy}{dx} - xy\right)$.}
+\mnote{.65}{\textbf{Note:} The step where the left hand side of the differential equation condenses to the derivative of a product can feel a bit magical.  The reality is that we choose $\mu(x)$ so that we can get exactly this condensing behavior.  It's not magic, it's math!  If you're still skeptical, try using the product rule and implicit differentiation to evaluate $\displaystyle \frac{d}{dx}\left (e^{-\frac{1}{2}x^2}y\right)$, and verify that it becomes $e^{-\frac{1}{2}x^2}\left(\displaystyle \frac{dy}{dx} - xy\right)$.}
 
 \vskip\baselineskip
 
@@ -169,7 +195,7 @@ or the explicit solution
 Find the general solution to $\displaystyle \yp -(\cos x)y = \cos x$.}
 {The differential equation is already in the correct form.  The integrating factor is given by
 	\[
-		\mu(x) = e^{-\int\cos x\,dx} = e^{-\sin x}.
+		\mu(x) = e^{-\int\hskip -1.5pt \cos x\,dx} = e^{-\sin x}.
 	\]
 Multiplying both sides of the equation by the integrating factor and condensing,
 	\[
@@ -191,15 +217,14 @@ We continue our practice by finding the particular solution to an initial value 
 
 \vskip\baselineskip
 
-\example{ex_linear_ivp}{Solving a First Order Linear Initial Value Problem}{
-Solve the initial value problem $\displaystyle x\yp - y = x^3\ln x$, with $y(1)=0.$}
+\example{ex_linear_ivp}{Solving a First Order Linear Initial Value Problem}{Solve the initial value problem $\displaystyle x\yp - y = x^3\ln x$, with $y(1)=0.$}
 {We first divide by $x$ to get
 	\[
 		\frac{dy}{dx}-\frac{1}{x}y = x^2\ln x.
 	\]
 The integrating factor is given by
 	\begin{align*}
-		\mu(x) &= e^{-\int \frac{1}{x}\,dx}\\
+		\mu(x) &= e^{\int-\frac{1}{x}\,dx}\\
 		&= e^{-\ln x}\\
 		&= e^{\ln x^{-1}}\\
 		&= x^{-1}.
@@ -253,13 +278,13 @@ The process of mathematical modeling does not stop simply because we have found 
 
 \example{ex_falling_object1}{A Falling Object with Air Resistance}{
 Suppose an object with mass $m$ is dropped from an airplane.  Find and solve a differential equation describing the vertical velocity of the object, taking air resistance into account.}
-{We still begin with Newon's second law, but now we assume that the forces in the object come both from gravity and from air resistance.  The gravitational force is still given by $mg$. For air resistance, we assume the force is related to the velocity of the object.  A simple way to describe this assumption might be $kv^p,$ where $k$ is a proportionality constant and $p$ is a positive real number. The value $k$ depends on various factors such as the density of the object, surface area of the object, and density of the air. The value $p$ affects how changes in the velocity affect the force.  Taken together, a function of the form $kv^p$ is often called a \emph{power law}.   The differential equation for the velocity is given by
+{We still begin with Newon's second law, but now we assume that the forces in the object come both from gravity and from air resistance.  The gravitational force is still given by $mg$. For air resistance, we assume the force is related to the velocity of the object.  A simple way to describe this assumption might be $kv^{\hskip .75pt p},$ where $k$ is a proportionality constant and $p$ is a positive real number. The value $k$ depends on various factors such as the density of the object, surface area of the object, and density of the air. The value $p$ affects how changes in the velocity affect the force.  Taken together, a function of the form $kv^{\hskip .75pt p}$ is often called a \emph{power law}.   The differential equation for the velocity is given by
 	\[
-		m\frac{dv}{dt} = mg - kv^p.
+		m\frac{dv}{dt} = mg - kv^{\hskip .75pt p}.
 	\]
 (Notice that the force from air resistance opposes motion, and points in the opposite direction as the force from gravity.)  This differential equation is separable, and can be written in the separated form
 	\[
-		\frac{m}{mg - kv^p}\,dv = dt.
+		\frac{m}{mg - kv^{\hskip .75pt p}}\,dv = dt.
 	\]
 For arbitrary positive $p$, the integration is difficult, making this problem hard to solve analytically.  In the case that $p=1$, the differential equation becomes linear, and is easy to solve either using either separation of variables or integrating factor techniques.  We assume $p=1$, and proceed with an integrating factor so we can continue practicing the process.  Writing
 	\[
@@ -267,7 +292,7 @@ For arbitrary positive $p$, the integration is difficult, making this problem ha
 	\]
 we identify the integrating factor
 	\[
-		\mu(t) = e^{\int \frac{k}{m}\,dt} = e^{\frac{k}{m}t}.
+		\mu(t) = e^{\int \hskip -1.5pt \frac{k}{m}\,dt} = e^{\frac{k}{m}t}.
 	\]
 Then
 	\[
@@ -285,8 +310,10 @@ or
 
 \vskip\baselineskip
 
+\mfigure{.3}{The velocity functions from examples \ref{ex_falling_object} (dashed) and \ref{ex_falling_object1} (solid) under the assumption that $v(0)=0$, with $g=9.8, m=1,$ and $k=1.$}{fig:20_03_falling_object}{figures/fig20_03_falling_object}
+
 In the solution above, the exponential term decays as time increases, causing the velocity to approach the constant value $mg/k$ in the limit as $t$ approaches infinity.  This value is called the \emph{terminal velocity}.  If we assume a zero initial velocity (the object is dropped, not thrown from the plane), the velocities from examples \ref{ex_falling_object} and \ref{ex_falling_object1} are given by $v = gt$ and $v = \displaystyle \frac{mg}{k}\left (1 - e^{-\frac{k}{m}t}\right )$, respectively.  These two functions are shown in figure \ref{fig:20_03_falling_object}, with $g = 9.8, m=1,$ and $k=1.$ Notice that the two curves agree well for short times, but have dramatically different behaviors as $t$ increases.  Part of the art in mathematical modeling is deciding on the level of detail required to answer the question of interest.   If we are only interested in the initial behavior of the falling object, the simple model in example \ref{ex_falling_object} may be sufficient.  If we are interested in the longer term behavior of the object, the simple model is not sufficient, and we should consider a more complicated model.
 
-\mfigure{.4}{The velocity functions from examples \ref{ex_falling_object} (dashed) and \ref{ex_falling_object1} (solid) under the assumption that $v(0)=0$, with $g=9.8, m=1,$ and $k=1.$}{fig:20_03_falling_object}{figures/fig20_03_falling_object}
+
 
 \printexercises{exercises/20_03_exercises}
