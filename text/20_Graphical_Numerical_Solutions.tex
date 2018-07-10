@@ -14,7 +14,7 @@ and saw that a \emph{solution} to a differential equation is simply a function t
 \begin{itemize}
 \item The variable $x$ is called the \textbf{independent variable}.
 \item The variable $y$ is called the \textbf{dependent variable}.
-\item The \textbf{order} of the differential equation is the order of the highest derivative of $y$.
+\item The \textbf{order} of the differential equation is the order of the highest derivative of $y$ the appears in the equation.
 \end{itemize}
 }
 
@@ -39,8 +39,9 @@ In order to specify the value of the integration constant $C$, we require additi
 
 The solution to an initial value problem is called a \textbf{particular solution}\index{differential equation!particular solution}. A particular solution does not include arbitrary constants.\\
 
-The family of solutions to a differential equation that encompasses all possible solutions is called the \textbf{general solution}\index{differential equation!general solution} to the differential equation. A general solution includes one or more arbitrary constants. The particular solution to an initial value problem is one specific member in the family of solutions.
-}\\
+The family of solutions to a differential equation that encompasses all possible solutions is called the \textbf{general solution}\index{differential equation!general solution} to the differential equation.}\\
+
+\mnote{.39}{\textbf{Note:} A general solution typically includes one or more arbitrary constants. Different values of the constant(s) specify different members in the family of solutions. The particular solution to an initial value problem is the specific member in the family of solutions that corresponds to the given initial condition(s).}
 
 \example{ex_simple_de}{A simple first-order differential equation}{
 Solve the differential equation $\displaystyle \yp = 2y$.}
@@ -253,9 +254,9 @@ To help visualize the Euler's method approximation, these three points (connecte
 Let's repeat the previous example using a smaller $h$-value.\\
 
 \example{ex_euler2}{Using Euler's Method 2}{
-Find an approximation at $x=2$ for the solution to $\yp = x + y$ with $y(1)=-1$ using Euler's Method with $h=0.25$.
+Find an approximation on the interval $[1,2]$ for the solution to $\yp = x + y$ with $y(1)=-1$ using Euler's Method with $h=0.25$.
 }
-{Our initial condition yields the starting values $x_0 = 1$ and $y_0 = -1$.  With $h = 0.25,$ it takes $N=4$ steps to get to $x=2.$  Using steps 1 and 2 from the Euler's Method algorithm (and rounding to 4 decimal points), we have
+{Our initial condition yields the starting values $x_0 = 1$ and $y_0 = -1$.  With $h = 0.25,$ we need $N=4$ steps on the interval $[1,2]$  Using steps 1 and 2 from the Euler's Method algorithm (and rounding to 4 decimal points), we have
 \[
 \begin{array}{rl | rl}
 x_0  &= 1			& 	y_0	&= -1\\ \hline
@@ -274,7 +275,7 @@ Using Euler's method, we find the approximate $y(2) \approx -0.5584.$
 These five points, along with the points from example \ref{ex_euler1} and the analytic solution, are plotted in figure \ref{fig:20_01_euler2}.
 }\\
 
-\mfigure{.8}{Euler's Method approximations to $\yp = x + y$ with $y(1) = -1$ from examples \ref{ex_euler1} and \ref{ex_euler2}, along with the analytical solution.}{fig:20_01_euler2}{figures/fig20_01_euler2}
+\mfigure{.45}{Euler's Method approximations to $\yp = x + y$ with $y(1) = -1$ from examples \ref{ex_euler1} and \ref{ex_euler2}, along with the analytical solution.}{fig:20_01_euler2}{figures/fig20_01_euler2}
 
 Using the results from examples \ref{ex_euler1} and \ref{ex_euler2}, we can make a few observations about Euler's method.  First, the Euler approximation gets successively worse as we get farther from the initial condition.  This is because Euler's method involves two sources of error.  The first comes from the fact that we're using a positive $h$-value in the derivative approximation instead of using a limit as $h$ approaches zero.  Essentially, we're using a linear approximation to the solution $y$ (similar to the process described in section \ref{sec:differentials} on differentials.) This error is often called the \emph{local truncation error.}  The second source of error comes from the fact that every step in Euler's method uses the result of the previous step.  That means we're using an approximate $y$-value to approximate the next $y$-value.  Doing this repeatedly causes the errors to build on each other.  This second type of error is often called the \emph{propagated} or \emph{accumulated error.} A second observation is that the Euler approximation is more accurate for smaller $h$-values.  This accuracy comes at a cost, though.  Example \ref{ex_euler2} is more accurate than example \ref{ex_euler1}, but takes twice as many computations.  In general, numerical algorithms (even when performed by a computer program) require striking a balance between a desired level of accuracy and the amount of computational effort we are willing to undertake.
 
@@ -306,7 +307,7 @@ x_5  &= 2.0		& 	y_5	&= 0.60966 + 0.4(0.60966)(1-0.60966)\\
 \]
 \[
 \begin{array}{rl | rl}
-x_6 	&= 2.4		&	y_6 	&= 0.70485 + 0.4(0.70485)(1 - 0.70485)\\
+\hline x_6 	&= 2.4		&	y_6 	&= 0.70485 + 0.4(0.70485)(1 - 0.70485)\\
 	&			&		&= 0.78806\\ \hline
 x_7 	&= 2.8 		& 	y_7 	&= 0.78806 + 0.4(0.78806)(1-0.78806)\\
 	&			&		&= 0.85487\\ \hline

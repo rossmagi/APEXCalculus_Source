@@ -45,7 +45,7 @@ Before working out a general technique for solving first order linear differenti
 	\[
 		\frac{d}{dx}\big(xy\big) = \sin x \cos x .
 	\]
-This is an easy differential equation to solve. On the left, the antiderivative of the derivative is simply the function $xy.$  Using the substitution $u = \sin x$ on the right results in the implicit solution
+This is an easy differential equation to solve. On the left, the antiderivative of the derivative is simply the function $xy.$  Using the substitution $u = \sin x$ on the right and integrating results in the implicit solution
 \[
 xy = \frac{1}{2}\sin^2 x + C.
 \]
@@ -84,7 +84,7 @@ which matches the form in definition \ref{def:Linear}.  Reversing our steps woul
 	
 \mnote{.55}{\textbf{Note:} In the examples in the previous section, we performed operations on the arbitrary constant $C$, but still called the result $C$. The justification is that the result after the operation is \emph{still} an arbitrary contant.  Here, we divide $C$ by $x$, so the result depends explicitly on the independent variable $x$.  Since $C/x$ is \emph{not} contant, we can't just call it $C$.}
 
-As motivated by the problem we just explored, the basic idea behind solving first order linear differential equations is to multiply both sides of the differential equation by a function, called an \emph{integrating factor}\index{differential equation!integrating factor}, that makes the left hand side of the equation look like an expanded product rule.  We then condense the left hand side into the derivative of a product and integrate both sides. An obvious question is how to find the integrating factor.
+As motivated by the problem we just explored, the basic idea behind solving first order linear differential equations is to multiply both sides of the differential equation by a function, called an \emph{integrating factor}\index{differential equation!integrating factor}, that makes the left hand side of the equation look like an expanded product rule.  We then condense the left hand side into the derivative of a product and integrate both sides. An obvious question is, ``how do you find this integrating factor?"
 
 Consider the first order linear equation
 	\[
